@@ -1,19 +1,10 @@
-# Build stage
-FROM node:18 AS build
+FROM php:8.2-apache
 
-WORKDIR /app
+# Copy your website files to Apache directory
+COPY . /var/www/html/
 
-COPY package*.json ./
-RUN npm install
+# Enable Apache mod_rewrite (optional but useful)
+RUN a2enmod rewrite
 
-COPY . .
-RUN npm run build
-
-# Production stage (Nginx)
-FROM nginx:alpine
-
-COPY --from=build /app/dist /usr/share/nginx/html
-
+# Expose port
 EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
