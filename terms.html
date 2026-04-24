@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavi Home Care and Nursing</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { poppins: ['Poppins'], inter: ['Inter'] },
+                    colors: {
+                        brand: {
+                            teal: '#09797f',
+                            tealLight: '#0a9ea5',
+                            tealDark: '#066a6f',
+                            tealPale: '#e6f5f6',
+                            gold: '#f0b104',
+                            goldLight: '#f7cc4a',
+                            goldPale: '#fef9e7',
+                            beige: '#fdf8f4',
+                            grey: '#f6f6f6',
+                            dark: '#1a1a2e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+        <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        html { overflow-x: hidden !important; scroll-behavior: auto !important;}
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #09797f; border-radius: 10px; }
+        ::selection { background: #09797f; color: #fff; }
+@media (max-width: 768px) {
+        .max-w-\[90\%\].mx-auto.px-6.pt-14.pb-8{
+            padding: 0;
+        }}
+        .gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); }
+        .gradient-gold { background: linear-gradient(135deg, #f0b104, #f7cc4a); }
+        .text-gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-teal {
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            box-shadow: 0 4px 20px rgba(9,121,127,0.35);
+            transition: all 0.4s; position: relative; overflow: hidden;
+        }
+        .btn-teal::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-teal:hover::before { left: 100%; }
+        .btn-teal:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(9,121,127,0.5); }
+        .card-premium {
+            background: #fff; border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            transition: all 0.5s; position: relative; overflow: hidden;
+        }
+        .card-premium::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transform: scaleX(0); transition: transform 0.5s; transform-origin: left;
+        }
+        .card-premium:hover::before { transform: scaleX(1); }
+        .card-premium:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+
+        /* Form Styles */
+        .form-input {
+            width: 100%; padding: 14px 18px; border-radius: 14px;
+            border: 2px solid #e5e7eb; background: #f9fafb;
+            font-size: 14px; color: #374151; transition: all 0.3s;
+            font-family: 'Inter', sans-serif; outline: none;
+        }
+        .form-input:focus {
+            border-color: #09797f; background: #fff;
+            box-shadow: 0 0 0 4px rgba(9,121,127,0.1);
+        }
+        .form-input::placeholder { color: #9ca3af; }
+        .form-input:hover { border-color: #d1d5db; }
+
+        .form-label {
+            display: block; font-size: 13px; font-weight: 600;
+            color: #374151; margin-bottom: 6px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-select {
+            appearance: none; width: 100%; padding: 14px 18px;
+            border-radius: 14px; border: 2px solid #e5e7eb;
+            background: #f9fafb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2309797f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
+            font-size: 14px; color: #374151; transition: all 0.3s;
+            font-family: 'Inter', sans-serif; outline: none; cursor: pointer;
+        }
+        .form-select:focus {
+            border-color: #09797f; background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(9,121,127,0.1);
+        }
+
+        .form-textarea {
+            width: 100%; padding: 14px 18px; border-radius: 14px;
+            border: 2px solid #e5e7eb; background: #f9fafb;
+            font-size: 14px; color: #374151; transition: all 0.3s;
+            font-family: 'Inter', sans-serif; outline: none;
+            resize: vertical; min-height: 140px;
+        }
+        .form-textarea:focus {
+            border-color: #09797f; background: #fff;
+            box-shadow: 0 0 0 4px rgba(9,121,127,0.1);
+        }
+
+        .form-checkbox {
+            width: 18px; height: 18px; border-radius: 5px;
+            border: 2px solid #d1d5db; accent-color: #09797f;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .form-checkbox:checked { border-color: #09797f; }
+
+        /* Success Toast */
+        .toast {
+            position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+            transform: translateX(120%); transition: transform 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);
+        }
+        .toast.show { transform: translateX(0); }
+
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+        @keyframes pulse-ring { 0%{transform:scale(1);opacity:1} 100%{transform:scale(1.5);opacity:0} }
+        .float { animation: float 6s ease-in-out infinite; }
+    </style>
+
+    <style>
+        html { overflow-x: hidden !important; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f6f6f6; overflow-x: hidden; }
+        ::selection { background: #09797f; color: #fff; }
+@media (max-width: 768px) {
+        .max-w-\[90\%\].mx-auto.px-6.pt-14.pb-8{
+            padding: 0;
+        }}
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #09797f; border-radius: 10px; }
+
+        .gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); }
+        .gradient-teal-dark { background: linear-gradient(135deg, #066a6f, #09797f); }
+        .gradient-teal-section { background: linear-gradient(135deg, #09797f, #0b8f96); }
+        .gradient-gold { background: linear-gradient(135deg, #f0b104, #f7cc4a); }
+        .text-gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .text-gradient-gold { background: linear-gradient(135deg, #f0b104, #d9a003); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .gradient-mesh {
+            background: radial-gradient(at 40% 20%, rgba(9,121,127,0.12) 0px, transparent 50%),
+                        radial-gradient(at 80% 0%, rgba(240,177,4,0.08) 0px, transparent 50%),
+                        radial-gradient(at 0% 50%, rgba(9,121,127,0.08) 0px, transparent 50%),
+                        radial-gradient(at 80% 50%, rgba(9,121,127,0.05) 0px, transparent 50%),
+                        radial-gradient(at 0% 100%, rgba(240,177,4,0.05) 0px, transparent 50%);
+        }
+
+        .btn-teal {
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 20px rgba(9, 121, 127, 0.35);
+            position: relative; overflow: hidden;
+        }
+        .btn-teal::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-teal:hover::before { left: 100%; }
+        .btn-teal:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(9, 121, 127, 0.5); }
+        .btn-teal:active { transform: translateY(-1px); }
+
+        .btn-outline-teal {
+            border: 2px solid #09797f; color: #09797f; transition: all 0.4s;
+            position: relative; overflow: hidden; z-index: 1;
+        }
+        .btn-outline-teal::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 100%;
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transition: width 0.4s; z-index: -1;
+        }
+        .btn-outline-teal:hover::before { width: 100%; }
+        .btn-outline-teal:hover { color: #fff; border-color: transparent; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(9,121,127,0.4); }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f0b104, #d9a003);
+            transition: all 0.4s;
+            box-shadow: 0 4px 20px rgba(240, 177, 4, 0.3);
+            position: relative; overflow: hidden;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(240,177,4,0.5); }
+
+        .card-premium {
+            background: #fff; border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative; overflow: hidden;
+        }
+        .card-premium::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transform: scaleX(0); transition: transform 0.5s; transform-origin: left;
+        }
+        .card-premium:hover::before { transform: scaleX(1); }
+        .card-premium:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+
+        .card-glass {
+            background: rgba(255,255,255,0.12); backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
+            transition: all 0.4s;
+        }
+        .card-glass:hover { background: rgba(255,255,255,0.2); transform: translateY(-5px); }
+
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+        @keyframes floatSlow { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-10px) rotate(3deg)} }
+        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 20px rgba(9,121,127,0.3)} 50%{box-shadow:0 0 40px rgba(9,121,127,0.6)} }
+        @keyframes pulse-gold { 0%,100%{box-shadow:0 0 20px rgba(240,177,4,0.3)} 50%{box-shadow:0 0 40px rgba(240,177,4,0.5)} }
+        @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        @keyframes blob { 0%{border-radius:40% 60% 55% 45%/55% 40% 60% 45%} 25%{border-radius:55% 45% 40% 60%/40% 55% 45% 60%} 50%{border-radius:45% 55% 60% 40%/60% 45% 55% 40%} 75%{border-radius:60% 40% 45% 55%/45% 60% 40% 55%} 100%{border-radius:40% 60% 55% 45%/55% 40% 60% 45%} }
+        @keyframes fadeInUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+        @keyframes ripple { 0%{transform:scale(1);opacity:1} 100%{transform:scale(4);opacity:0} }
+        @keyframes shimmer { 0%{left:-100%} 100%{left:200%} }
+        @keyframes loading { 0%{width:0} 100%{width:100%} }
+
+        .float { animation: float 6s ease-in-out infinite; }
+        .float-slow { animation: floatSlow 8s ease-in-out infinite; }
+        .float-delay { animation: float 6s ease-in-out 2s infinite; }
+        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        .spin-slow { animation: spin-slow 20s linear infinite; }
+
+        .hero-blob {
+            position: absolute; width: 115%; height: 115%; top: -7.5%; left: -7.5%;
+            background: linear-gradient(135deg, #09797f, #0a9ea5, #09797f);
+            z-index: 0; opacity: 0.9;
+            animation: blob 8s ease-in-out infinite;
+        }
+
+        .nav-link { position: relative; transition: all 0.3s; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -6px; left: 50%; width: 0; height: 2px;
+            background: #09797f; transition: all 0.3s; transform: translateX(-50%); border-radius: 2px;
+        }
+        .nav-link.active::after,.nav-link:hover::after { width: 100%; }
+        .nav-link.active,.nav-link:hover { color: #09797f; }
+
+        /* ===== FLOATING STICKY HEADER ===== */
+
+        #mainHeader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            place-self: center;
+            z-index: 50;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 0;
+            margin: 0;
+            width: 100%;
+            box-shadow: none;
+        }
+
+        /* Scrolled state — floating pill style */
+        #mainHeader.header-scrolled {
+            top: 12px;
+            place-self: center;
+            transform: translateX(0%);
+            width: 92%;
+            max-width: 1400px;
+            border-radius: 20px;
+            /* height: 70px; */
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                0 0 0 1px rgba(9, 121, 127, 0.06);
+            border-bottom: none;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        /* When header is scrolled — adjust inner container */
+        #mainHeader.header-scrolled .header-inner {
+            height: 70px;
+        }
+
+        /* Logo shrink on scroll */
+        #mainHeader.header-scrolled .header-logo img {
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        #mainHeader .header-logo img {
+            transition: transform 0.4s ease;
+        }
+
+        /* Nav links adjust */
+        #mainHeader.header-scrolled .nav-link {
+            font-size: 13px;
+        }
+
+        /* Hide state — when scrolling DOWN fast, hide header */
+        #mainHeader.header-hidden {
+            top: -100px;
+            opacity: 0;
+        }
+
+        /* Show state — when scrolling UP, show header */
+        #mainHeader.header-visible {
+            opacity: 1;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 1024px) {
+            #mainHeader.header-scrolled {
+                width: 95%;
+                top: 8px;
+                border-radius: 16px;
+            }
+        }
+        .header-scrolled .mobile-menu.open{
+            left: -1px !important;
+        }
+        /* #mainHeader .mobile-menu.open{
+            left: 0px !important;
+        } */
+
+        @media (max-width: 640px) {
+            #mainHeader.header-scrolled {
+                width: 100%;
+                top: 0px;
+                border-radius: 0px;
+                left:0%;
+                /* height: 64px; */
+            }
+            
+            #mainHeader.header-scrolled .header-inner {
+                height: 64px;
+            }
+        }
+
+        .header-scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08) !important; backdrop-filter: blur(20px); background: rgba(255,255,255,0.95) !important; }
+
+        .hamburger span { display: block; width: 26px; height: 2.5px; background: #333; margin: 5px 0; transition: all 0.4s cubic-bezier(0.68,-0.55,0.265,1.55); border-radius: 3px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); background: #09797f; }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(20px); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); background: #09797f; }
+        /* keep desktop untouched, change only mobile */
+        @media (max-width: 1024px) {
+            .mobile-menu {
+                position: fixed;
+                inset: 0;
+                width: 100vw;
+                height: 100dvh;
+                max-height: none;
+                overflow-y: auto;
+                overflow-x: hidden;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                z-index: 999;
+                
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(-12px);
+                transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+            }
+
+            .mobile-menu.open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .mobile-menu > div {
+                min-height: 100dvh;
+                width: 100%;
+                padding-top: 100px;
+                padding-bottom: 32px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .mobile-menu-close {
+                position: absolute;
+                top: 24px;
+                right: 24px;
+                width: 44px;
+                height: 44px;
+                border-radius: 9999px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(9, 121, 127, 0.08);
+                color: #09797f;
+                font-size: 18px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                z-index: 2;
+            }
+
+            .mobile-menu-close:hover {
+                background: #09797f;
+                color: #fff;
+            }
+        }
+
+        /* body lock should stay global, not inside media query */
+        body.menu-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+
+        .faq-answer { max-height: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4,0,0.2,1); }
+        .faq-answer.open { max-height: 500px; }
+        .faq-icon { transition: transform 0.4s cubic-bezier(0.68,-0.55,0.265,1.55); }
+        .faq-icon.rotated { transform: rotate(45deg); }
+
+        .marquee-track { display: flex; animation: marquee 30s linear infinite; width: max-content; }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        .counter-number { font-variant-numeric: tabular-nums; }
+
+        .product-card { transition: all 0.5s; position: relative; overflow: hidden; }
+        .product-card .product-overlay {
+            position: absolute; inset: 0; background: rgba(9,121,127,0.9);
+            opacity: 0; transition: all 0.5s; display: flex; align-items: center; justify-content: center;
+        }
+        .product-card:hover .product-overlay { opacity: 1; }
+        .product-card:hover { transform: scale(1.02); }
+        .product-card .product-img { transition: transform 0.7s; }
+        .product-card:hover .product-img { transform: scale(1.1); }
+
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .img-hover { overflow: hidden; }
+        .img-hover img { transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+        .img-hover:hover img { transform: scale(1.08); }
+
+        .badge-shimmer { position: relative; overflow: hidden; }
+        .badge-shimmer::after {
+            content:''; position:absolute; top:0; left:-100%; width:50%; height:100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .play-btn { position: relative; }
+        .play-btn::before {
+            content: ''; position: absolute; inset: -8px; border: 2px solid rgba(9,121,127,0.4);
+            border-radius: 50%; animation: ripple 2s infinite;
+        }
+        .play-btn::after {
+            content: ''; position: absolute; inset: -16px; border: 2px solid rgba(9,121,127,0.2);
+            border-radius: 50%; animation: ripple 2s 0.5s infinite;
+        }
+
+        .gold-accent { color: #f0b104; }
+        .teal-accent { color: #09797f; }
+    </style>
+
+</head>
+<body class="bg-brand-grey">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-white flex items-center justify-center transition-opacity duration-700">
+        <div class="text-center">
+            <img src="assets/img/logo.png" alt="">
+            <div class="w-48 h-1 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full gradient-teal rounded-full" style="animation: loading 1.5s ease-in-out forwards;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CURSOR -->
+    <div id="cursor" class="fixed w-5 h-5 rounded-full border-2 border-brand-teal pointer-events-none z-[9998] transition-transform duration-150 ease-out hidden lg:block" style="transform:translate(-50%,-50%)"></div>
+    <div id="cursorDot" class="fixed w-1.5 h-1.5 rounded-full bg-brand-teal pointer-events-none z-[9998] hidden lg:block" style="transform:translate(-50%,-50%)"></div>
+
+    <!-- HEADER -->
+    <!-- ===== FLOATING STICKY HEADER ===== -->
+    <header id="mainHeader">
+        <div class="header-inner max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between transition-all duration-500" style="height: 80px;">
+            
+            <!-- Logo -->
+            <a href="index.html" class="header-logo flex items-center gap-2.5 group">
+                <img src="assets/img/logo.png" class="h-20 w-auto transition-transform duration-400" alt="CareHeart Logo">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">Home</a>
+                <a href="about.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">About</a>
+                <a href="services.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">Services</a>
+                <a href="contact.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">Contact</a>
+            </nav>
+
+            <!-- Right Side -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="tel:+1800000000" class="text-sm font-medium text-gray-600 hover:text-brand-teal transition-colors">
+                    <i class="fas fa-phone-alt mr-1.5 text-brand-gold"></i>+91 84387 82511
+                </a>
+                <a href="contact.html" class="btn-teal text-white text-sm font-semibold px-6 py-2.5 rounded-full inline-block transition-all duration-300">
+                    <i class="fas fa-headset mr-1.5"></i>Reach Us
+                </a>
+            </div>
+
+            <!-- Hamburger -->
+            <button class="lg:hidden hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu lg:hidden bg-white backdrop-blur-md" id="mobileMenu">
+            <div class="max-w-[1200px] mx-auto px-6 py-6 flex flex-col gap-1 relative">
+
+                <!-- Close button -->
+                <button id="closeMenuBtn" class="mobile-menu-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <a href="index.html" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-book-open mr-3 w-5 text-center text-brand-teal"></i>Home
+                </a>
+
+                <a href="about.html" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-info-circle mr-3 w-5 text-center text-brand-teal"></i>About
+                </a>
+
+                <a href="services.html" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-briefcase mr-3 w-5 text-center text-brand-teal"></i>Services
+                </a>
+
+                <a href="contact.html" class="btn-teal text-white text-sm font-semibold px-7 py-3.5 rounded-full text-center mt-4">
+                    <i class="fas fa-search mr-2"></i>Contact Us
+                </a>
+
+                <!-- Contact Details -->
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-4 mb-3">Contact Details</h4>
+
+                    <a href="tel:+918438782511" class="flex items-center gap-3 text-sm text-gray-600 py-2.5 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                        <i class="fas fa-phone-alt w-5 text-center text-brand-teal text-xs"></i>
+                        <span>+91 84387 82511</span>
+                    </a>
+
+                    <a href="mailto:kaviparkavi747@gmail.com" class="flex items-center gap-3 text-sm text-gray-600 py-2.5 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                        <i class="fas fa-envelope w-5 text-center text-brand-teal text-xs"></i>
+                        <span>kaviparkavi747@gmail.com</span>
+                    </a>
+
+                    <div class="flex items-start gap-3 text-sm text-gray-600 py-2.5 px-4">
+                        <i class="fas fa-map-marker-alt w-5 text-center text-brand-teal text-xs mt-0.5"></i>
+                        <span>Vigneshwara, 2nd St, Madipakkam, Chennai, Tamil Nadu 600091</span>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-3 px-4 mt-4">
+                        <a href="https://www.facebook.com/kavihomecareandnursing/" class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-tealPale text-brand-teal hover:bg-brand-teal hover:text-white transition-all text-sm">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kavi_homecare_and_nursing/" class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-tealPale text-brand-teal hover:bg-brand-teal hover:text-white transition-all text-sm">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+        
+
+  <style>
+    .gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); }
+    .gradient-gold { background: linear-gradient(135deg, #f0b104, #f7cc4a); }
+    .text-gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .btn-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); box-shadow: 0 4px 20px rgba(9,121,127,0.35); transition: all 0.4s; position: relative; overflow: hidden; }
+    .btn-teal::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent); transition:left 0.5s; }
+    .btn-teal:hover::before { left:100%; }
+    .btn-teal:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(9,121,127,0.5); }
+  </style>
+  <!-- PAGE HEADER / HERO -->
+  <section class="pt-28 pb-10 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-teal mb-3">
+        Legal Information
+      </p>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
+        Terms &amp; Conditions
+      </h1>
+      <p class="text-sm sm:text-base text-gray-500 max-w-2xl">
+        These Terms and Conditions govern the access to and use of the Kavi Home Service website, including all pages, services, information, and features made available through the website.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="pb-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="p-6 sm:p-8 space-y-6 text-sm sm:text-base leading-relaxed">
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">ABOUT</h2>
+          <p class="text-gray-600 mb-4">
+            These Terms and Conditions govern the access to and use of the Kavi Home Service website, including all pages, services, information, and features made available through the website. By accessing the website, submitting an enquiry, or requesting any service, the user confirms that they have read, understood, and agreed to comply with these Terms in full. If the user does not agree with any part of these Terms and Conditions, the user must immediately stop using the website and must not request any services from the Company.
+          </p>
+          <p class="text-gray-600 mb-4">
+            Kavi Home Service operates a digital platform that enables individuals and families to request home-support and home-care services in a simple and convenient manner. The website is designed to provide clear information about available services and to allow users to contact the Company for service-related enquiries. These Terms apply to all visitors, users, customers, and any person accessing the website, regardless of whether the user is requesting services for themselves or for another individual.
+          </p>
+          <p class="text-gray-600">
+            The Company reserves the right to modify, update, or replace these Terms and Conditions at any time without prior notice. Any updated version shall become effective immediately upon being published on the website. Continued use of the website after such updates shall be considered acceptance of the revised Terms.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Description of Services</h2>
+          <p class="text-gray-600 mb-4">
+            Kavi Home Service provides home-care and home-support services that are designed to assist individuals who require help with daily activities within their homes. These services may include elderly care assistance, patient-care support, childcare services, personal care assistance, companionship services, basic home-support services, and other related assistance that improves comfort and safety within the home environment. The purpose of the services is to support individuals and families by providing reliable home-care assistance that improves quality of life.
+          </p>
+          <p class="text-gray-600 mb-4">
+            The services offered through the website are strictly non-medical in nature unless specifically stated otherwise in writing. Caregivers provided through the Company are not licensed medical professionals unless explicitly mentioned. The Company does not provide medical treatment, diagnosis, clinical procedures, or emergency healthcare services. Users acknowledge that the services are intended only for assistance and support and must not be considered a substitute for professional medical care.
+          </p>
+          <p class="text-gray-600">
+            The Company reserves the right to modify, expand, reduce, suspend, or discontinue any service at any time depending on operational requirements, service availability, or other business considerations. Information displayed on the website is intended for general understanding and may be updated periodically.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Eligibility to Use the Website</h2>
+          <p class="text-gray-600 mb-4">
+            The website and services are intended only for individuals who are legally capable of entering into a binding agreement under applicable law. By using the website, the user confirms that they are at least eighteen (18) years of age and have the legal authority to enter into these Terms and Conditions. If the Company becomes aware that a user does not meet the eligibility criteria, the Company reserves the right to restrict access to the website or decline any service request.
+          </p>
+          <p class="text-gray-600">
+            Users may request services either for themselves or on behalf of another individual such as a parent, child, family member, or patient. Where a user requests services on behalf of another person, the user confirms that they have the authority and consent to provide personal information relating to such individual and to request services on their behalf. The Company shall not be liable for any disputes arising due to lack of authorization from the concerned individual.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">User Responsibilities</h2>
+          <p class="text-gray-600 mb-4">
+            Users are required to provide accurate, complete, and truthful information when submitting a service request through the website. This includes providing correct contact details, accurate service requirements, and truthful information regarding the condition of the person receiving care. Any incorrect or misleading information may result in delays, inability to provide services, or improper service delivery, for which the Company shall not be held responsible.
+          </p>
+          <p class="text-gray-600">
+            Users are also responsible for ensuring that the home environment where services are provided is safe and suitable for caregivers. This includes providing a clean and safe environment, ensuring that the caregiver is treated respectfully, and providing any necessary information required for safe service delivery. The Company shall not be responsible for any damage or issues caused due to unsafe conditions within the user's premises.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Nature of the Website</h2>
+          <p class="text-gray-600 mb-4">
+            The website is designed primarily as an informational platform through which users can learn about the services offered by the Company and submit service requests. The Company makes reasonable efforts to ensure that the information available on the website is accurate and up to date; however, the Company does not guarantee that all content on the website will always be accurate, complete, or free from errors.
+          </p>
+          <p class="text-gray-600">
+            The Company reserves the right to modify, update, or remove any content from the website at any time without prior notice. Access to the website may occasionally be interrupted due to maintenance, technical issues, or operational requirements. The Company shall not be responsible for any inconvenience caused due to such interruptions.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Service Availability</h2>
+          <p class="text-gray-600 mb-4">
+            All services offered through the website are subject strictly to availability and operational feasibility. The Company does not guarantee that any specific service will be available at all times, on all dates, or in all geographical locations. Service availability may depend on several operational factors including, but not limited to, the availability of qualified caregivers, service location, nature of the requested service, timing requirements, duration of service, and internal operational capacity. Users acknowledge and agree that the Company has the absolute discretion to determine whether a particular service request can be fulfilled.
+          </p>
+          <p class="text-gray-600">
+            Even after a user submits a service request through the website or through any other communication channel, such submission shall not be considered a confirmation of service. Services shall be deemed confirmed only after the Company has reviewed the request, verified the information provided, confirmed the availability of appropriate caregivers, and communicated such confirmation directly to the user. The Company reserves the right to reject any service request at its sole discretion without being required to provide any explanation.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Booking and Service Requests</h2>
+          <p class="text-gray-600 mb-4">
+            Users may request services through the enquiry forms available on the website, through direct communication with the Company, or through any contact channels officially provided by the Company. Submission of a service request is only a request for services and does not create any contractual obligation on the part of the Company until the request has been reviewed and formally accepted. The Company reserves the right to request additional information from the user before confirming any service request, particularly where the information provided is incomplete, unclear, or insufficient to evaluate the service requirements.
+          </p>
+          <p class="text-gray-600">
+            Users are solely responsible for ensuring that all information provided during the booking process is accurate, complete, and truthful. This includes information relating to the service location, the nature of the care required, the condition of the individual receiving care, and any other relevant information that may affect the ability of the Company to provide services. The Company shall not be liable for any delay, cancellation, or service issues arising from inaccurate or incomplete information provided by the user.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Fees and Payment Terms</h2>
+          <p class="text-gray-600 mb-4">
+            Users agree to pay all applicable fees for the services requested through the website in accordance with the pricing structure communicated by the Company. The cost of services may vary depending on multiple factors including the type of service requested, the duration of the service, the complexity of the service requirements, the service location, and any additional support required. The Company reserves the right to revise or modify its pricing structure at any time in order to reflect operational costs, service improvements, or business requirements.
+          </p>
+          <p class="text-gray-600">
+            Payment must be made in accordance with the terms communicated by the Company at the time of confirmation. Failure to make payment within the required time may result in suspension, delay, or cancellation of services. The Company shall not be responsible for any inconvenience, loss, or delay caused due to the user's failure to make timely payment. The Company also reserves the right to refuse future services where previous payments remain outstanding.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Cancellation and Rescheduling</h2>
+          <p class="text-gray-600 mb-4">
+            Users may request cancellation or rescheduling of services; however, such requests must be made within a reasonable time prior to the scheduled service. The Company reserves the right to apply reasonable cancellation policies depending on the timing of the cancellation and the nature of the services booked. Where cancellation is requested at short notice, the Company may apply cancellation charges in order to compensate for operational losses or caregiver allocation.
+          </p>
+          <p class="text-gray-600">
+            The Company may also reschedule services where necessary due to caregiver unavailability, operational challenges, or other unforeseen circumstances. In such cases, the Company shall make reasonable efforts to inform the user in advance and provide an alternative schedule where possible. Users agree to cooperate with reasonable rescheduling requests made by the Company.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Non-Medical Services Disclaimer</h2>
+          <p class="text-gray-600 mb-4">
+            The services provided through the website are strictly non-medical in nature unless expressly stated otherwise in writing. Caregivers assigned by the Company are not licensed medical professionals and are not authorized to diagnose medical conditions, prescribe medications, perform clinical procedures, or provide any form of medical treatment. The purpose of the services is limited to providing support and assistance with daily living activities.
+          </p>
+          <p class="text-gray-600">
+            Users acknowledge and agree that the responsibility for medical treatment, healthcare supervision, and emergency care remains solely with qualified medical professionals. The Company shall not be liable for any medical conditions, health complications, injuries, or outcomes that arise during or after the provision of services. Users agree that the services are intended only as support services and must not be considered a substitute for professional medical care.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">User Conduct</h2>
+          <p class="text-gray-600 mb-4">
+            Users agree to use the website and services in a lawful, respectful, and responsible manner. Users shall not provide false information, misuse the services, or engage in any behaviour that may be considered abusive, threatening, offensive, or inappropriate towards caregivers or Company representatives. The Company maintains a strict policy of respect and professionalism and reserves the right to refuse services where user behaviour violates these standards.
+          </p>
+          <p class="text-gray-600">
+            Any conduct that threatens the safety, dignity, or well-being of caregivers or Company staff may result in immediate suspension or termination of services without prior notice. The Company also reserves the right to take appropriate legal action where user conduct violates applicable laws or causes harm to the Company or its personnel.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Privacy and Data Protection</h2>
+          <p class="text-gray-600 mb-4">
+            The Company is committed to protecting the privacy and personal information of users. Personal data provided by users shall be collected, stored, and processed only for the purpose of providing services, improving service quality, and maintaining communication with users. By using the website, users consent to the collection and processing of their personal data in accordance with the Company's Privacy Policy.
+          </p>
+          <p class="text-gray-600">
+            While the Company takes reasonable technical and organizational measures to protect personal data, users acknowledge that no digital platform can guarantee complete security. The Company shall not be held liable for unauthorized access to data caused by factors beyond its control.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Limitation of Liability</h2>
+          <p class="text-gray-600 mb-4">
+            To the maximum extent permitted by law, the Company shall not be liable for any indirect, incidental, consequential, or special damages arising from the use of the website or services. This includes, but is not limited to, loss of data, loss of income, service interruptions, or dissatisfaction with service quality. The Company shall also not be responsible for any damages arising from inaccurate information provided by the user.
+          </p>
+          <p class="text-gray-600">
+            Users agree that the services are provided on a best-effort basis and that the Company's liability, if any, shall be limited to the amount paid by the user for the specific service in question. By using the website, users accept this limitation of liability as a condition of accessing the services.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Service Quality</h2>
+          <p class="text-gray-600 mb-4">
+            The Company makes reasonable efforts to provide reliable and high-quality services; however, the Company does not guarantee that the services will always meet the expectations of every user. Service quality may vary depending on the specific needs of the user, the condition of the individual receiving care, and other factors beyond the control of the Company.
+          </p>
+          <p class="text-gray-600">
+            Users acknowledge that the services are intended to provide assistance and support and not guaranteed outcomes. The Company shall not be responsible for dissatisfaction arising from unrealistic expectations or circumstances beyond its control.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Intellectual Property</h2>
+          <p class="text-gray-600 mb-4">
+            All content available on the website, including but not limited to text, images, graphics, logos, design elements, and service descriptions, is the exclusive property of the Company. Users are strictly prohibited from copying, reproducing, modifying, distributing, or using any content from the website without prior written permission from the Company.
+          </p>
+          <p class="text-gray-600">
+            Unauthorized use of website content may result in legal action, including claims for intellectual property infringement and damages.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Third-Party Links</h2>
+          <p class="text-gray-600 mb-4">
+            The website may contain links to third-party websites for informational or convenience purposes. Such links are provided solely for user convenience and do not imply any endorsement by the Company. The Company does not control third-party websites and shall not be responsible for their content, policies, or services.
+          </p>
+          <p class="text-gray-600">
+            Users acknowledge that access to third-party websites is entirely at their own risk and that the Company shall not be liable for any loss or damage arising from the use of such websites.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Website Security</h2>
+          <p class="text-gray-600 mb-4">
+            Users agree not to attempt to gain unauthorized access to the website, interfere with website operations, or engage in any activity that may harm the website or its users. This includes attempts to bypass security measures, upload harmful software, or misuse website functionality.
+          </p>
+          <p class="text-gray-600">
+            The Company reserves the right to suspend access and take legal action against any user who attempts to compromise the security of the website.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Service Limitations</h2>
+          <p class="text-gray-600 mb-4">
+            The Company reserves the absolute and unrestricted right to limit, modify, suspend, or restrict the scope of services offered through the website whenever it is reasonably necessary to do so for operational, safety, regulatory, or legal reasons. Such limitations may include, but shall not be limited to, restricting the types of services available in certain locations, limiting the duration or frequency of services, restricting services to specific time periods, or declining services where the Company determines that the requested services cannot be provided safely, effectively, or in accordance with applicable standards.
+          </p>
+          <p class="text-gray-600 mb-4">
+            Service limitations may also arise due to caregiver availability, operational capacity, geographic restrictions, the condition of the individual receiving care, safety concerns within the user's premises, or circumstances that may expose caregivers or Company staff to unreasonable risk. The Company shall have the sole discretion to determine whether a service request can be fulfilled and whether any limitations need to be imposed. Users acknowledge that the Company is not obligated to provide services in circumstances were doing so may compromise safety, service quality, or compliance with applicable laws or internal policies.
+          </p>
+          <p class="text-gray-600">
+            Users further agree to comply with any reasonable restrictions or limitations imposed by the Company. The Company shall not be held liable for any inconvenience, delay, or dissatisfaction arising from such limitations where they are imposed in good faith and for legitimate operational or safety reasons. The Company also reserves the right to revise service limitations from time to time in order to improve service quality, ensure safety, or comply with regulatory requirements.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">MAJOR EFFECTS</h2>
+          <p class="text-gray-600 mb-4">
+            The Company shall not be held liable for any failure, delay, interruption, or inability to provide services where such failure or delay arises from events or circumstances beyond the reasonable control of the Company. Such events may include, but are not limited to, natural disasters, severe weather conditions, floods, earthquakes, fires, pandemics, public health emergencies, government restrictions, transportation disruptions, power failures, internet or communication failures, labour shortages, or any other unforeseen event that makes it impossible or impractical for the Company to continue providing services.
+          </p>
+          <p class="text-gray-600 mb-4">
+            In the event of a force majeure situation, the Company shall have the right to suspend, delay, reschedule, or cancel services without incurring any liability to the user. The Company will make reasonable efforts to inform users of any such disruptions as soon as reasonably possible; however, users acknowledge that certain events may occur without prior warning and may result in unavoidable service interruptions.
+          </p>
+          <p class="text-gray-600">
+            Users agree that the Company shall not be responsible for any loss, inconvenience, financial impact, or dissatisfaction arising from delays or service interruptions caused by force majeure events. Once the situation is resolved, the Company may resume services at its discretion and subject to availability.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Termination of Services</h2>
+          <p class="text-gray-600 mb-4">
+            The Company reserves the right to suspend, restrict, or terminate the provision of services at any time where it reasonably believes that a user has violated these Terms and Conditions, provided false or misleading information, misused the services, engaged in inappropriate or unlawful conduct, or created circumstances that make it unsafe or impractical for the Company to continue providing services. Such termination may take effect immediately and without prior notice where the Company considers it necessary to protect its caregivers, staff, operations, or reputation.
+          </p>
+          <p class="text-gray-600">
+            Users may also choose to discontinue the use of services at any time; however, such discontinuation shall not relieve the user of any financial obligations or liabilities that may have arisen prior to the termination of services. Any outstanding payments must be settled in full even after services are discontinued. The Company shall not be liable for any inconvenience, dissatisfaction, or loss arising from the termination of services in accordance with these Terms.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Changes to Services</h2>
+          <p class="text-gray-600 mb-4">
+            The Company reserves the right to modify, update, improve, suspend, or discontinue any part of the services offered through the website at any time without prior notice. Such changes may be made for operational reasons, service improvements, regulatory requirements, or business considerations. Users acknowledge that the nature of home-support services may evolve over time and agree that the Company is entitled to make reasonable modifications to the services it provides.
+          </p>
+          <p class="text-gray-600">
+            Where possible, the Company will make reasonable efforts to inform users about significant changes that may affect existing services. However, continued use of the website or continued use of services after such changes shall be considered acceptance of the modified services. The Company shall not be liable for any inconvenience or loss arising from modifications made in good faith for operational or business purposes.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Accuracy of Information</h2>
+          <p class="text-gray-600 mb-4">
+            The Company makes reasonable efforts to ensure that the information provided on the website is accurate, complete, and up to date; however, the Company does not guarantee that all information on the website will always be free from errors, omissions, or inaccuracies. Information relating to services, availability, pricing, or service descriptions may change from time to time, and users are encouraged to contact the Company directly for confirmation before relying on any information published on the website.
+          </p>
+          <p class="text-gray-600">
+            The Company shall not be liable for any loss, inconvenience, or misunderstanding arising from reliance on inaccurate or outdated information displayed on the website. Users acknowledge that the website is intended to provide general information and that final service details shall be confirmed directly by the Company.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Dispute Resolution</h2>
+          <p class="text-gray-600 mb-4">
+            In the event of any dispute, disagreement, or claim arising out of or relating to the use of the website or the services provided by the Company, both parties agree to first attempt to resolve the matter through good-faith discussions and mutual communication. The intention of this clause is to encourage resolution of disputes in a fair and reasonable manner without unnecessary escalation.
+          </p>
+          <p class="text-gray-600">
+            If a dispute cannot be resolved through mutual discussions within a reasonable time, the parties may pursue appropriate legal remedies in accordance with applicable laws. Users agree not to initiate any legal action without first attempting to resolve the issue directly with the Company. The Company shall make reasonable efforts to address complaints and resolve disputes in a professional and timely manner.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Contact Information</h2>
+          <p class="text-gray-600 mb-4">
+            Users may contact the Company regarding service enquiries, complaints, billing issues, feedback, or general questions using the official contact details provided on the website. The Company encourages users to contact the support team directly before escalating any issues to third parties. All communications made through official contact channels shall be treated as formal communication for the purpose of resolving service-related issues.
+          </p>
+          <p class="text-gray-600 mb-4">
+            The Company shall make reasonable efforts to respond to user enquiries within a commercially reasonable timeframe; however, the Company does not guarantee specific response times. Users are responsible for ensuring that they provide correct contact information when communicating with the Company in order to facilitate efficient communication.
+          </p>
+          <p class="text-gray-700 mt-4">
+            <span class="font-semibold">EMAIL:</span> <a href="mailto:kaviparkavi747@gmail.com" class="text-brand-teal font-medium">kaviparkavi747@gmail.com</a><br>
+            <span class="font-semibold">CONTACT NO:</span> <a href="tel:+918438782511" class="text-brand-teal font-medium">+91 84387 82511</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Acceptance of Terms</h2>
+          <p class="text-gray-600 mb-4">
+            By accessing the website, submitting a service request, or using any services provided by the Company, the user confirms that they have read, understood, and agreed to these Terms and Conditions in full. Continued use of the website shall be considered acceptance of these Terms and any updates made to them from time to time. If a user does not agree with any part of these Terms, the user must immediately stop using the website and refrain from requesting services.
+          </p>
+          <p class="text-gray-600">
+            These Terms constitute the complete agreement between the user and the Company with respect to the use of the website and the services provided. Users acknowledge that they have read these Terms carefully and agree to be legally bound by them.
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+    <!-- FOOTER -->
+    <!-- ===== PREMIUM FOOTER — ALIGNMENT PERFECTED ===== -->
+    <footer class="bg-white pt-0 pb-0">
+
+        <!-- Footer Top CTA Strip -->
+        <div class="gradient-teal">
+            <div class="max-w-[90%] mx-auto px-6 py-7 flex flex-col md:flex-row items-center justify-between gap-5">
+                <div class="flex items-center gap-4 text-white">
+                    <div class="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center flex-shrink-0 border border-white/20">
+                        <i class="fas fa-headset text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-poppins font-bold text-base md:text-lg leading-tight">Need Immediate Care Assistance?</h4>
+                        <p class="text-white/70 text-sm leading-snug">Our team is available 24/7 to arrange support.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <a href="tel:+918438782511" class="bg-white/15 backdrop-blur border border-white/30 text-white font-semibold px-6 py-3 rounded-full text-sm hover:bg-white/25 transition-all inline-flex items-center gap-2">
+                        <i class="fas fa-phone-alt"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="max-w-[90%] mx-auto px-6 pt-14 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-10 mb-12">
+
+                <!-- Column 1: Logo + About (span 3) -->
+                <div class="lg:col-span-3">
+                    <a href="index.html" class="inline-block mb-5">
+                        <img src="assets/img/logo.png" class="h-[6rem] w-auto" alt="Kavi Home Services Logo">
+                    </a>
+                    <p style="text-align: justify;" class="text-sm text-gray-400 leading-relaxed mb-0">
+                        Reliable home care and nursing assistance focused on helping individuals maintain comfort and dignity at home. Caregiving that respects personal routines while giving families confidence in everyday living.
+                    </p>
+                </div>
+
+                <!-- Column 2: Services (span 2) -->
+                <div class="lg:col-span-2">
+                    <h5 class="font-poppins font-semibold text-gray-800 mb-5 flex items-center gap-2 text-[15px]">
+                        <span class="w-1 h-5 bg-brand-teal rounded-full"></span> Services
+                    </h5>
+                    <ul class="flex flex-col gap-2.5">
+                        <li><a href="index.html#services" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Our Values</a></li>
+                        <li><a href="index.html#care-team" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Recognition </a></li>
+                        <li><a href="index.html#testimonials-reviews" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Client Stories</a></li>
+                        <li><a href="index.html#philosophy" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Service Outcomes</a></li>
+                        <li><a href="about.html#Milestones" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Our Approach </a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Quick Links (span 2) -->
+                <div class="lg:col-span-2">
+                    <h5 class="font-poppins font-semibold text-gray-800 mb-5 flex items-center gap-2 text-[15px]">
+                        <span class="w-1 h-5 bg-brand-gold rounded-full"></span> Quick Links
+                    </h5>
+                    <ul class="flex flex-col gap-2.5">
+                        <li><a href="index.html" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>Home</a></li>
+                        <li><a href="about.html" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>About Us</a></li>
+                        <li><a href="services.html" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>Services</a></li>
+                        <li><a href="index.html#faq" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>FAQ</a></li>
+                        <li><a href="contact.html" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Working Hours + Social (span 5) -->
+                <div class="lg:col-span-5">
+                    <!-- Working Hours -->
+                    <h5 class="font-poppins font-semibold text-gray-800 mb-4 flex items-center gap-2 text-[15px]">
+                        <span class="w-1 h-5 bg-brand-gold rounded-full"></span> Working Hours
+                    </h5>
+                    <div class="bg-brand-grey rounded-xl p-4 mb-6">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[13px] text-gray-500 flex items-center gap-2">
+                                    <i class="fas fa-clock text-brand-teal text-xs"></i> Office Hours
+                                </span>
+                                <span class="text-[13px] font-semibold text-gray-700">Mon – Fri: 24/7 Available</span>
+                            </div>
+                            <div class="border-t border-gray-200/70"></div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-[13px] text-gray-500 flex items-center gap-2">
+                                    <i class="fas fa-clock text-brand-gold text-xs"></i> Weekend
+                                </span>
+                                <span class="text-[13px] font-semibold text-gray-700">Sat – Sun: 24/7 Available</span>
+                            </div>
+                            <div class="border-t border-gray-200/70"></div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-[13px] text-gray-500 flex items-center gap-2">
+                                    <i class="fas fa-headset text-green-500 text-xs"></i> Care Support
+                                </span>
+                                <span class="text-[13px] font-bold text-green-600 flex items-center gap-1.5">
+                                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> 24/7 Available
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Contact Info Strip — Full Width, Equal Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+                <!-- Phone -->
+                <a href="tel:+918438782511" class="flex items-center gap-3.5 p-4 bg-brand-grey rounded-xl hover:bg-brand-tealPale transition-all duration-300 group">
+                    <div class="w-11 h-11 rounded-lg gradient-teal flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-phone-alt text-white text-sm"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold leading-none mb-1">24/7 Support Line</p>
+                        <p class="text-sm font-bold text-gray-800 group-hover:text-brand-teal transition-colors truncate">+91 84387 82511</p>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:kaviparkavi747@gmail.com" class="flex items-center gap-3.5 p-4 bg-brand-grey rounded-xl hover:bg-brand-tealPale transition-all duration-300 group">
+                    <div class="w-11 h-11 rounded-lg bg-brand-gold flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-envelope text-white text-sm"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold leading-none mb-1">Email Us</p>
+                        <p class="text-sm font-bold text-gray-800 group-hover:text-brand-teal transition-colors truncate">kaviparkavi747@gmail.com</p>
+                    </div>
+                </a>
+
+                <!-- Address -->
+                <div class="flex items-center gap-3.5 p-4 bg-brand-grey rounded-xl">
+                    <div class="w-11 h-11 rounded-lg gradient-teal flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold leading-none mb-1">Head Office</p>
+                        <p class="text-sm font-bold text-gray-800 leading-snug">Vigneshwara, 2nd St, Madipakkam, Chennai, Tamil Nadu 600091</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer Bar -->
+            <div class="border-t border-gray-100 pt-7">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-5">
+                    <!-- Left: Copyright -->
+                    <div class="flex flex-col sm:flex-row items-center gap-1.5 text-center sm:text-left">
+                        <p class="text-[13px] text-gray-400">
+                            © <span id="year"></span> <span class="font-semibold text-gray-600">Kavi Home Care and Nursing</span>. All rights reserved.
+                        </p>
+                        <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+                    </div>
+                    <div class="flex flex-row sm:flex-row items-center gap-1.5 text-center sm:text-left">
+                        <a href="terms.html" class="text-[13px] text-gray-400">
+                             <span class="font text-gray-600">Terms & Conditions</span>
+                        </a>
+                        <p class="text-[13px]  sm:flex text-gray-400">
+                             <span class="font text-gray-600">|</span>
+                        </p>
+                        <a href="privacy.html" class="text-[13px] text-gray-400">
+                             <span class="font text-gray-600">Privacy Policy</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- BACK TO TOP -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full text-white  flex items-center justify-center z-40 opacity-0 translate-y-4 transition-all duration-500 hover:scale-110 hover:-translate-y-1" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <img src="assets/img/chevron.gif" style="" alt="">
+    </button>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".nav-link");
+    const currentPage = window.location.pathname.split("/").pop();
+
+    links.forEach(link => {
+        const linkPage = link.getAttribute("href");
+
+        if (linkPage === currentPage) {
+            link.classList.add("active");
+        }
+    });
+});
+</script> <script>
+        AOS.init({ once: true, offset: 80, duration: 700 });
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const p = document.getElementById('preloader');
+                p.style.opacity = '0';
+                setTimeout(() => p.style.display = 'none', 700);
+            }, 1500);
+        });
+
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursorDot');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2)'; cursor.style.borderColor = '#09797f'; cursor.style.background = 'rgba(9,121,127,0.08)'; });
+            el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; cursor.style.background = 'transparent'; });
+        });
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('mainHeader').classList.toggle('header-scrolled', window.scrollY > 50);
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 500) { btn.style.opacity = '1'; btn.style.transform = 'translateY(0)'; }
+            else { btn.style.opacity = '0'; btn.style.transform = 'translateY(16px)'; }
+        });
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+
+        function openMenu() {
+        hamburgerBtn.classList.add('active');
+        mobileMenu.classList.add('open');
+        document.body.classList.add('menu-open');
+        }
+
+        function closeMenu() {
+        hamburgerBtn.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        }
+
+        hamburgerBtn.addEventListener('click', function () {
+        if (mobileMenu.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+        });
+
+        if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', closeMenu);
+        }
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+        });
+
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const icon = btn.querySelector('.faq-icon');
+            document.querySelectorAll('.faq-item').forEach(i => {
+                if (i !== item) { i.querySelector('.faq-answer').classList.remove('open'); i.querySelector('.faq-icon').classList.remove('rotated'); }
+            });
+            answer.classList.toggle('open'); icon.classList.toggle('rotated');
+        }
+
+        const counters = document.querySelectorAll('.counter-number');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target, target = parseFloat(el.dataset.target);
+                    if (!target) return;
+                    const isDec = target % 1 !== 0, dur = 2000, start = performance.now();
+                    const anim = (now) => {
+                        const p = Math.min((now - start) / dur, 1), e = 1 - Math.pow(1 - p, 4), c = e * target;
+                        el.textContent = isDec ? c.toFixed(1) : Math.floor(c).toLocaleString();
+                        if (p < 1) requestAnimationFrame(anim);
+                    };
+                    requestAnimationFrame(anim); obs.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => obs.observe(c));
+
+        function filterProducts(cat, btn) {
+            document.querySelectorAll('.product-tab').forEach(t => { t.style.background = '#fff'; t.style.color = '#6b7280'; t.style.boxShadow = '0 1px 3px rgba(0,0,0,0.08)'; });
+            btn.style.background = '#09797f'; btn.style.color = '#fff'; btn.style.boxShadow = '0 4px 15px rgba(9,121,127,0.3)';
+            document.querySelectorAll('.product-card').forEach((card, i) => {
+                const c = card.dataset.category;
+                if (cat === 'all' || c === cat) { card.style.display = ''; card.style.animation = `fadeInUp 0.5s ${i * 0.08}s both`; }
+                else { card.style.display = 'none'; }
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const h = this.getAttribute('href');
+                if (h !== '#') { e.preventDefault(); const el = document.querySelector(h); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                document.getElementById('hamburgerBtn').classList.remove('active');
+                document.getElementById('mobileMenu').classList.remove('open');
+            });
+        });
+
+        if (window.innerWidth > 1024) {
+            document.querySelectorAll('.card-premium').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const r = card.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+                    card.style.transform = `perspective(1000px) rotateX(${(y - r.height/2)/25}deg) rotateY(${(r.width/2 - x)/25}deg) translateY(-8px)`;
+                });
+                card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+            });
+        }
+    </script>
+
+
+
+
+<!-- Lenis -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.0.44/dist/lenis.min.js"></script>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  // Register ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Lenis instance
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    smoothTouch: false
+  });
+
+  // Make Lenis global if you want to call scrollTo elsewhere
+  window.lenis = lenis;
+
+  // Option A: GSAP ticker drives Lenis (recommended with ScrollTrigger)
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    // GSAP time is in seconds, Lenis expects ms
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+</script>
+
+</body>
+</html>

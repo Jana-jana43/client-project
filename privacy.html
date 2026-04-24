@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavi Home Care and Nursing</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { poppins: ['Poppins'], inter: ['Inter'] },
+                    colors: {
+                        brand: {
+                            teal: '#09797f',
+                            tealLight: '#0a9ea5',
+                            tealDark: '#066a6f',
+                            tealPale: '#e6f5f6',
+                            gold: '#f0b104',
+                            goldLight: '#f7cc4a',
+                            goldPale: '#fef9e7',
+                            beige: '#fdf8f4',
+                            grey: '#f6f6f6',
+                            dark: '#1a1a2e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+        <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        html { overflow-x: hidden !important; scroll-behavior: auto !important;}
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #09797f; border-radius: 10px; }
+        ::selection { background: #09797f; color: #fff; }
+@media (max-width: 768px) {
+        .max-w-\[90\%\].mx-auto.px-6.pt-14.pb-8{
+            padding: 0;
+        }}
+        .gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); }
+        .gradient-gold { background: linear-gradient(135deg, #f0b104, #f7cc4a); }
+        .text-gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-teal {
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            box-shadow: 0 4px 20px rgba(9,121,127,0.35);
+            transition: all 0.4s; position: relative; overflow: hidden;
+        }
+        .btn-teal::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-teal:hover::before { left: 100%; }
+        .btn-teal:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(9,121,127,0.5); }
+        .card-premium {
+            background: #fff; border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            transition: all 0.5s; position: relative; overflow: hidden;
+        }
+        .card-premium::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transform: scaleX(0); transition: transform 0.5s; transform-origin: left;
+        }
+        .card-premium:hover::before { transform: scaleX(1); }
+        .card-premium:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+
+        /* Form Styles */
+        .form-input {
+            width: 100%; padding: 14px 18px; border-radius: 14px;
+            border: 2px solid #e5e7eb; background: #f9fafb;
+            font-size: 14px; color: #374151; transition: all 0.3s;
+            font-family: 'Inter', sans-serif; outline: none;
+        }
+        .form-input:focus {
+            border-color: #09797f; background: #fff;
+            box-shadow: 0 0 0 4px rgba(9,121,127,0.1);
+        }
+        .form-input::placeholder { color: #9ca3af; }
+        .form-input:hover { border-color: #d1d5db; }
+
+        .form-label {
+            display: block; font-size: 13px; font-weight: 600;
+            color: #374151; margin-bottom: 6px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-select {
+            appearance: none; width: 100%; padding: 14px 18px;
+            border-radius: 14px; border: 2px solid #e5e7eb;
+            background: #f9fafb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2309797f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 16px center;
+            font-size: 14px; color: #374151; transition: all 0.3s;
+            font-family: 'Inter', sans-serif; outline: none; cursor: pointer;
+        }
+        .form-select:focus {
+            border-color: #09797f; background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(9,121,127,0.1);
+        }
+
+        .form-textarea {
+            width: 100%; padding: 14px 18px; border-radius: 14px;
+            border: 2px solid #e5e7eb; background: #f9fafb;
+            font-size: 14px; color: #374151; transition: all 0.3s;
+            font-family: 'Inter', sans-serif; outline: none;
+            resize: vertical; min-height: 140px;
+        }
+        .form-textarea:focus {
+            border-color: #09797f; background: #fff;
+            box-shadow: 0 0 0 4px rgba(9,121,127,0.1);
+        }
+
+        .form-checkbox {
+            width: 18px; height: 18px; border-radius: 5px;
+            border: 2px solid #d1d5db; accent-color: #09797f;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .form-checkbox:checked { border-color: #09797f; }
+
+        /* Success Toast */
+        .toast {
+            position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+            transform: translateX(120%); transition: transform 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);
+        }
+        .toast.show { transform: translateX(0); }
+
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+        @keyframes pulse-ring { 0%{transform:scale(1);opacity:1} 100%{transform:scale(1.5);opacity:0} }
+        .float { animation: float 6s ease-in-out infinite; }
+    </style>
+
+    <style>
+        html { overflow-x: hidden !important; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f6f6f6; overflow-x: hidden; }
+        ::selection { background: #09797f; color: #fff; }
+@media (max-width: 768px) {
+        .max-w-\[90\%\].mx-auto.px-6.pt-14.pb-8{
+            padding: 0;
+        }}
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #09797f; border-radius: 10px; }
+
+        .gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); }
+        .gradient-teal-dark { background: linear-gradient(135deg, #066a6f, #09797f); }
+        .gradient-teal-section { background: linear-gradient(135deg, #09797f, #0b8f96); }
+        .gradient-gold { background: linear-gradient(135deg, #f0b104, #f7cc4a); }
+        .text-gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .text-gradient-gold { background: linear-gradient(135deg, #f0b104, #d9a003); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .gradient-mesh {
+            background: radial-gradient(at 40% 20%, rgba(9,121,127,0.12) 0px, transparent 50%),
+                        radial-gradient(at 80% 0%, rgba(240,177,4,0.08) 0px, transparent 50%),
+                        radial-gradient(at 0% 50%, rgba(9,121,127,0.08) 0px, transparent 50%),
+                        radial-gradient(at 80% 50%, rgba(9,121,127,0.05) 0px, transparent 50%),
+                        radial-gradient(at 0% 100%, rgba(240,177,4,0.05) 0px, transparent 50%);
+        }
+
+        .btn-teal {
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 20px rgba(9, 121, 127, 0.35);
+            position: relative; overflow: hidden;
+        }
+        .btn-teal::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-teal:hover::before { left: 100%; }
+        .btn-teal:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(9, 121, 127, 0.5); }
+        .btn-teal:active { transform: translateY(-1px); }
+
+        .btn-outline-teal {
+            border: 2px solid #09797f; color: #09797f; transition: all 0.4s;
+            position: relative; overflow: hidden; z-index: 1;
+        }
+        .btn-outline-teal::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 100%;
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transition: width 0.4s; z-index: -1;
+        }
+        .btn-outline-teal:hover::before { width: 100%; }
+        .btn-outline-teal:hover { color: #fff; border-color: transparent; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(9,121,127,0.4); }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f0b104, #d9a003);
+            transition: all 0.4s;
+            box-shadow: 0 4px 20px rgba(240, 177, 4, 0.3);
+            position: relative; overflow: hidden;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(240,177,4,0.5); }
+
+        .card-premium {
+            background: #fff; border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative; overflow: hidden;
+        }
+        .card-premium::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transform: scaleX(0); transition: transform 0.5s; transform-origin: left;
+        }
+        .card-premium:hover::before { transform: scaleX(1); }
+        .card-premium:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+
+        .card-glass {
+            background: rgba(255,255,255,0.12); backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
+            transition: all 0.4s;
+        }
+        .card-glass:hover { background: rgba(255,255,255,0.2); transform: translateY(-5px); }
+
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+        @keyframes floatSlow { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-10px) rotate(3deg)} }
+        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 20px rgba(9,121,127,0.3)} 50%{box-shadow:0 0 40px rgba(9,121,127,0.6)} }
+        @keyframes pulse-gold { 0%,100%{box-shadow:0 0 20px rgba(240,177,4,0.3)} 50%{box-shadow:0 0 40px rgba(240,177,4,0.5)} }
+        @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        @keyframes blob { 0%{border-radius:40% 60% 55% 45%/55% 40% 60% 45%} 25%{border-radius:55% 45% 40% 60%/40% 55% 45% 60%} 50%{border-radius:45% 55% 60% 40%/60% 45% 55% 40%} 75%{border-radius:60% 40% 45% 55%/45% 60% 40% 55%} 100%{border-radius:40% 60% 55% 45%/55% 40% 60% 45%} }
+        @keyframes fadeInUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+        @keyframes ripple { 0%{transform:scale(1);opacity:1} 100%{transform:scale(4);opacity:0} }
+        @keyframes shimmer { 0%{left:-100%} 100%{left:200%} }
+        @keyframes loading { 0%{width:0} 100%{width:100%} }
+
+        .float { animation: float 6s ease-in-out infinite; }
+        .float-slow { animation: floatSlow 8s ease-in-out infinite; }
+        .float-delay { animation: float 6s ease-in-out 2s infinite; }
+        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        .spin-slow { animation: spin-slow 20s linear infinite; }
+
+        .hero-blob {
+            position: absolute; width: 115%; height: 115%; top: -7.5%; left: -7.5%;
+            background: linear-gradient(135deg, #09797f, #0a9ea5, #09797f);
+            z-index: 0; opacity: 0.9;
+            animation: blob 8s ease-in-out infinite;
+        }
+
+        .nav-link { position: relative; transition: all 0.3s; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -6px; left: 50%; width: 0; height: 2px;
+            background: #09797f; transition: all 0.3s; transform: translateX(-50%); border-radius: 2px;
+        }
+        .nav-link.active::after,.nav-link:hover::after { width: 100%; }
+        .nav-link.active,.nav-link:hover { color: #09797f; }
+
+        /* ===== FLOATING STICKY HEADER ===== */
+
+        #mainHeader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            place-self: center;
+            z-index: 50;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 0;
+            margin: 0;
+            width: 100%;
+            box-shadow: none;
+        }
+
+        /* Scrolled state — floating pill style */
+        #mainHeader.header-scrolled {
+            top: 12px;
+            place-self: center;
+            transform: translateX(0%);
+            width: 92%;
+            max-width: 1400px;
+            border-radius: 20px;
+            /* height: 70px; */
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                0 0 0 1px rgba(9, 121, 127, 0.06);
+            border-bottom: none;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        /* When header is scrolled — adjust inner container */
+        #mainHeader.header-scrolled .header-inner {
+            height: 70px;
+        }
+
+        /* Logo shrink on scroll */
+        #mainHeader.header-scrolled .header-logo img {
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        #mainHeader .header-logo img {
+            transition: transform 0.4s ease;
+        }
+
+        /* Nav links adjust */
+        #mainHeader.header-scrolled .nav-link {
+            font-size: 13px;
+        }
+
+        /* Hide state — when scrolling DOWN fast, hide header */
+        #mainHeader.header-hidden {
+            top: -100px;
+            opacity: 0;
+        }
+
+        /* Show state — when scrolling UP, show header */
+        #mainHeader.header-visible {
+            opacity: 1;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 1024px) {
+            #mainHeader.header-scrolled {
+                width: 95%;
+                top: 8px;
+                border-radius: 16px;
+            }
+        }
+        .header-scrolled .mobile-menu.open{
+            left: -1px !important;
+        }
+        /* #mainHeader .mobile-menu.open{
+            left: 0px !important;
+        } */
+
+        @media (max-width: 640px) {
+            #mainHeader.header-scrolled {
+                width: 100%;
+                top: 0px;
+                border-radius: 0px;
+                left:0%;
+                /* height: 64px; */
+            }
+            
+            #mainHeader.header-scrolled .header-inner {
+                height: 64px;
+            }
+        }
+
+        .header-scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08) !important; backdrop-filter: blur(20px); background: rgba(255,255,255,0.95) !important; }
+
+        .hamburger span { display: block; width: 26px; height: 2.5px; background: #333; margin: 5px 0; transition: all 0.4s cubic-bezier(0.68,-0.55,0.265,1.55); border-radius: 3px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); background: #09797f; }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(20px); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); background: #09797f; }
+        /* keep desktop untouched, change only mobile */
+        @media (max-width: 1024px) {
+            .mobile-menu {
+                position: fixed;
+                inset: 0;
+                width: 100vw;
+                height: 100dvh;
+                max-height: none;
+                overflow-y: auto;
+                overflow-x: hidden;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                z-index: 999;
+                
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(-12px);
+                transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+            }
+
+            .mobile-menu.open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .mobile-menu > div {
+                min-height: 100dvh;
+                width: 100%;
+                padding-top: 100px;
+                padding-bottom: 32px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .mobile-menu-close {
+                position: absolute;
+                top: 24px;
+                right: 24px;
+                width: 44px;
+                height: 44px;
+                border-radius: 9999px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(9, 121, 127, 0.08);
+                color: #09797f;
+                font-size: 18px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                z-index: 2;
+            }
+
+            .mobile-menu-close:hover {
+                background: #09797f;
+                color: #fff;
+            }
+        }
+
+        /* body lock should stay global, not inside media query */
+        body.menu-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+
+        .faq-answer { max-height: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4,0,0.2,1); }
+        .faq-answer.open { max-height: 500px; }
+        .faq-icon { transition: transform 0.4s cubic-bezier(0.68,-0.55,0.265,1.55); }
+        .faq-icon.rotated { transform: rotate(45deg); }
+
+        .marquee-track { display: flex; animation: marquee 30s linear infinite; width: max-content; }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        .counter-number { font-variant-numeric: tabular-nums; }
+
+        .product-card { transition: all 0.5s; position: relative; overflow: hidden; }
+        .product-card .product-overlay {
+            position: absolute; inset: 0; background: rgba(9,121,127,0.9);
+            opacity: 0; transition: all 0.5s; display: flex; align-items: center; justify-content: center;
+        }
+        .product-card:hover .product-overlay { opacity: 1; }
+        .product-card:hover { transform: scale(1.02); }
+        .product-card .product-img { transition: transform 0.7s; }
+        .product-card:hover .product-img { transform: scale(1.1); }
+
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .img-hover { overflow: hidden; }
+        .img-hover img { transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+        .img-hover:hover img { transform: scale(1.08); }
+
+        .badge-shimmer { position: relative; overflow: hidden; }
+        .badge-shimmer::after {
+            content:''; position:absolute; top:0; left:-100%; width:50%; height:100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .play-btn { position: relative; }
+        .play-btn::before {
+            content: ''; position: absolute; inset: -8px; border: 2px solid rgba(9,121,127,0.4);
+            border-radius: 50%; animation: ripple 2s infinite;
+        }
+        .play-btn::after {
+            content: ''; position: absolute; inset: -16px; border: 2px solid rgba(9,121,127,0.2);
+            border-radius: 50%; animation: ripple 2s 0.5s infinite;
+        }
+
+        .gold-accent { color: #f0b104; }
+        .teal-accent { color: #09797f; }
+    </style>
+
+</head>
+<body class="bg-brand-grey">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-white flex items-center justify-center transition-opacity duration-700">
+        <div class="text-center">
+            <img src="assets/img/logo.png" alt="">
+            <div class="w-48 h-1 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full gradient-teal rounded-full" style="animation: loading 1.5s ease-in-out forwards;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CURSOR -->
+    <div id="cursor" class="fixed w-5 h-5 rounded-full border-2 border-brand-teal pointer-events-none z-[9998] transition-transform duration-150 ease-out hidden lg:block" style="transform:translate(-50%,-50%)"></div>
+    <div id="cursorDot" class="fixed w-1.5 h-1.5 rounded-full bg-brand-teal pointer-events-none z-[9998] hidden lg:block" style="transform:translate(-50%,-50%)"></div>
+
+    <!-- HEADER -->
+    <!-- ===== FLOATING STICKY HEADER ===== -->
+    <header id="mainHeader">
+        <div class="header-inner max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between transition-all duration-500" style="height: 80px;">
+            
+            <!-- Logo -->
+            <a href="index.html" class="header-logo flex items-center gap-2.5 group">
+                <img src="assets/img/logo.png" class="h-20 w-auto transition-transform duration-400" alt="CareHeart Logo">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">Home</a>
+                <a href="about.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">About</a>
+                <a href="services.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">Services</a>
+                <a href="contact.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">Contact</a>
+            </nav>
+
+            <!-- Right Side -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="tel:+1800000000" class="text-sm font-medium text-gray-600 hover:text-brand-teal transition-colors">
+                    <i class="fas fa-phone-alt mr-1.5 text-brand-gold"></i>+91 84387 82511
+                </a>
+                <a href="contact.html" class="btn-teal text-white text-sm font-semibold px-6 py-2.5 rounded-full inline-block transition-all duration-300">
+                    <i class="fas fa-headset mr-1.5"></i>Reach Us
+                </a>
+            </div>
+
+            <!-- Hamburger -->
+            <button class="lg:hidden hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu lg:hidden bg-white backdrop-blur-md" id="mobileMenu">
+            <div class="max-w-[1200px] mx-auto px-6 py-6 flex flex-col gap-1 relative">
+
+                <!-- Close button -->
+                <button id="closeMenuBtn" class="mobile-menu-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <a href="index.html" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-book-open mr-3 w-5 text-center text-brand-teal"></i>Home
+                </a>
+
+                <a href="about.html" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-info-circle mr-3 w-5 text-center text-brand-teal"></i>About
+                </a>
+
+                <a href="services.html" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-briefcase mr-3 w-5 text-center text-brand-teal"></i>Services
+                </a>
+
+                <a href="contact.html" class="btn-teal text-white text-sm font-semibold px-7 py-3.5 rounded-full text-center mt-4">
+                    <i class="fas fa-search mr-2"></i>Contact Us
+                </a>
+
+                <!-- Contact Details -->
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-4 mb-3">Contact Details</h4>
+
+                    <a href="tel:+918438782511" class="flex items-center gap-3 text-sm text-gray-600 py-2.5 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                        <i class="fas fa-phone-alt w-5 text-center text-brand-teal text-xs"></i>
+                        <span>+91 84387 82511</span>
+                    </a>
+
+                    <a href="mailto:kaviparkavi747@gmail.com" class="flex items-center gap-3 text-sm text-gray-600 py-2.5 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                        <i class="fas fa-envelope w-5 text-center text-brand-teal text-xs"></i>
+                        <span>kaviparkavi747@gmail.com</span>
+                    </a>
+
+                    <div class="flex items-start gap-3 text-sm text-gray-600 py-2.5 px-4">
+                        <i class="fas fa-map-marker-alt w-5 text-center text-brand-teal text-xs mt-0.5"></i>
+                        <span>Vigneshwara, 2nd St, Madipakkam, Chennai, Tamil Nadu 600091</span>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-3 px-4 mt-4">
+                        <a href="https://www.facebook.com/kavihomecareandnursing/" class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-tealPale text-brand-teal hover:bg-brand-teal hover:text-white transition-all text-sm">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kavi_homecare_and_nursing/" class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-tealPale text-brand-teal hover:bg-brand-teal hover:text-white transition-all text-sm">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+        
+
+  <style>
+    .gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); }
+    .gradient-gold { background: linear-gradient(135deg, #f0b104, #f7cc4a); }
+    .text-gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .btn-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); box-shadow: 0 4px 20px rgba(9,121,127,0.35); transition: all 0.4s; position: relative; overflow: hidden; }
+    .btn-teal::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent); transition:left 0.5s; }
+    .btn-teal:hover::before { left:100%; }
+    .btn-teal:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(9,121,127,0.5); }
+  </style>
+  <!-- PAGE HEADER / HERO -->
+  <section class="pt-28 pb-10 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-teal mb-3">
+        Legal Information
+      </p>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
+        Privacy Policy
+      </h1>
+      <p class="text-sm sm:text-base text-gray-500 max-w-2xl">
+        Kavi Home Service values the privacy and trust of every individual who visits the website or requests services through it. This Privacy Policy explains in detail how personal information is collected, used, stored, protected, and shared.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="pb-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="p-6 sm:p-8 space-y-6 text-sm sm:text-base leading-relaxed">
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">1. Introduction</h2>
+          <p class="text-gray-600 mb-4">
+            Kavi Home Service values the privacy and trust of every individual who visits the website or requests services through it. This Privacy Policy explains in detail how personal information is collected, used, stored, protected, and shared when users access the website or request home-care and home-support services. The Company understands that many users request services for elderly individuals, children, or patients, and therefore personal information shared through the website may be sensitive in nature. The Company is committed to handling such information in a lawful, transparent, and secure manner.
+          </p>
+          <p class="text-gray-600">
+            By using the website or submitting any personal information through it, users agree to the collection and use of their information in accordance with this Privacy Policy. If a user does not agree with the practices described in this Policy, the user should not use the website or submit any personal data.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">2. Scope of This Privacy Policy</h2>
+          <p class="text-gray-600 mb-4">
+            This Privacy Policy applies to all visitors, users, and customers who access the website or request services through it. It applies whether the user is requesting services for themselves, for a family member, for an elderly person, for a child, or for any other individual who requires home-care assistance. The Policy applies to all data collected through the website, enquiry forms, service requests, customer support communication, and any other interaction between the user and the Company.
+          </p>
+          <p class="text-gray-600">
+            This Policy also applies to personal information collected automatically when users browse the website. It applies regardless of the device used to access the website, including mobile phones, tablets, laptops, and desktop computers.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">3. Types of Information We Collect</h2>
+          <p class="text-gray-600 mb-4">
+            The Company may collect different types of personal and technical information depending on how users interact with the website. This may include personal identification information, contact information, service-related information, and technical information collected automatically when the website is accessed. The purpose of collecting such information is to provide home-care services effectively and to improve the user experience.
+          </p>
+          <p class="text-gray-600">
+            The Company collects only the information that is necessary for providing services and does not intentionally collect unnecessary personal data.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">4. Personal Information Provided by Users</h2>
+          <p class="text-gray-600 mb-4">
+            When users submit an enquiry or request services through the website, they may be required to provide personal information such as their name, phone number, email address, and service location. Users may also provide additional information relating to the type of service required, preferred service schedule, and details about the individual receiving care. This information helps the Company understand the specific needs of the user and provide appropriate services.
+          </p>
+          <p class="text-gray-600">
+            Users are responsible for ensuring that the information they provide is accurate and complete. The Company shall not be responsible for any service issues that arise due to incorrect or incomplete information provided by the user.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">5. Information About the Individual Receiving Care</h2>
+          <p class="text-gray-600 mb-4">
+            In many cases, services are requested on behalf of another person such as an elderly parent, a child, or a patient who requires assistance. In such cases, the Company may collect limited information about the individual receiving care in order to provide appropriate services. This information may include age, mobility condition, service requirements, and other details necessary for safe and effective service delivery.
+          </p>
+          <p class="text-gray-600">
+            The Company collects only the information that is required for the purpose of providing services. Users confirm that they have the authority to provide such information when requesting services on behalf of another individual.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">6. Technical Information Collected Automatically</h2>
+          <p class="text-gray-600 mb-4">
+            When users access the website, certain technical information may be collected automatically. This may include IP address, browser type, device type, operating system, access time, and website usage data. This information helps the Company understand how users interact with the website and allows the Company to improve website performance and service quality.
+          </p>
+          <p class="text-gray-600">
+            Technical information is collected primarily for security, performance, and analytical purposes. It is not used to personally identify users unless required for security reasons.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">7. Purpose of Data Collection</h2>
+          <p class="text-gray-600 mb-4">
+            The Company collects personal information for the primary purpose of providing home-care and home-support services. This includes contacting users, confirming service requests, assigning caregivers, responding to enquiries, and providing customer support. Personal information may also be used to improve service quality, enhance website functionality, and understand user needs more effectively.
+          </p>
+          <p class="text-gray-600">
+            The Company collects only the information that is necessary to provide services and does not use personal data for unrelated purposes.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">8. How Personal Information Is Used</h2>
+          <p class="text-gray-600 mb-4">
+            Personal information collected through the website may be used to contact users, respond to enquiries, confirm service bookings, and provide customer support. The Company may also use personal information to improve service quality, understand user preferences, and enhance the overall user experience.
+          </p>
+          <p class="text-gray-600">
+            The Company shall not use personal information in a manner that is inconsistent with the purpose for which it was collected. All personal data shall be used responsibly and in accordance with this Privacy Policy.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">9. Use of Contact Information</h2>
+          <p class="text-gray-600 mb-4">
+            Contact information such as phone number and email address may be used to communicate with users regarding service enquiries, confirmations, service updates, or customer support. The Company may also use contact information to respond to complaints or feedback provided by users.
+          </p>
+          <p class="text-gray-600">
+            The Company shall not use contact information for unsolicited communication that is unrelated to the services requested by the user.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">10. Data Security Measures</h2>
+          <p class="text-gray-600 mb-4">
+            The Company takes reasonable technical and organizational measures to protect personal information from unauthorized access, misuse, loss, or disclosure. This may include secure storage systems, restricted access to data, and internal procedures designed to protect user information.
+          </p>
+          <p class="text-gray-600">
+            While the Company makes reasonable efforts to protect personal information, users acknowledge that no online platform can guarantee complete security. The Company shall not be responsible for unauthorized access caused by circumstances beyond its control.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">11. Sharing of Personal Information</h2>
+          <p class="text-gray-600 mb-4">
+            The Company does not sell, rent, or trade personal information to third parties. Personal information may only be shared where it is necessary to provide the requested services. For example, limited information may be shared with caregivers so that they can provide services effectively.
+          </p>
+          <p class="text-gray-600">
+            Personal information may also be shared where required by law or where disclosure is necessary to protect the rights and safety of the Company, its users, or its staff.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">12. Data Retention</h2>
+          <p class="text-gray-600 mb-4">
+            Personal information shall be retained only for as long as necessary to provide the requested services and to comply with legal obligations. Once the information is no longer required, the Company shall take reasonable steps to delete or securely store the data.
+          </p>
+          <p class="text-gray-600">
+            Users may contact the Company if they wish to request deletion of their personal information.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">13. Data Accuracy</h2>
+          <p class="text-gray-600 mb-4">
+            The Company relies on users to provide accurate, complete, and up-to-date information when submitting enquiries, requesting services, or communicating through the website. The accuracy of the information provided by users is essential for the Company to understand service requirements, allocate appropriate personnel, and ensure that services are delivered safely and effectively. If a user provides incorrect, incomplete, or outdated information, it may affect the quality of the services provided, and the Company shall not be responsible for any issues arising from such inaccuracies.
+          </p>
+          <p class="text-gray-600">
+            Users are encouraged to promptly update the Company if there are any changes to their personal information or the information relating to the individual receiving care. Where the Company becomes aware that certain information may be inaccurate or outdated, the Company may contact the user to request clarification or updated details. If a user believes that any personal information held by the Company is incorrect, incomplete, or no longer relevant, the user may contact the Company to request correction. The Company shall make reasonable efforts to verify and update the information within a reasonable timeframe, subject to applicable legal requirements and operational limitations.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">14. User Rights</h2>
+          <p class="text-gray-600 mb-4">
+            The Company respects the rights of users in relation to their personal information and aims to ensure that users have appropriate control over how their data is used. Users have the right to request access to the personal information held about them, request correction of inaccurate or incomplete data, and request deletion of their personal information where such deletion is permitted by law. Users may also request clarification regarding the purpose for which their personal information is collected and how it is used by the Company.
+          </p>
+          <p class="text-gray-600">
+            Where a user submits a request to access, correct, or delete personal data, the Company may take reasonable steps to verify the identity of the user before processing the request in order to protect personal information from unauthorized access. The Company shall make reasonable efforts to respond to such requests in a timely and transparent manner. However, in certain situations, the Company may retain limited information where retention is necessary to comply with legal obligations, resolve disputes, or enforce contractual rights.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">15. Third-Party Links</h2>
+          <p class="text-gray-600 mb-4">
+            The website may contain links to third-party websites, platforms, or service providers that are provided solely for informational or convenience purposes. These links do not imply that the Company endorses, controls, or is responsible for the content, privacy practices, or security measures of such third-party websites. Once a user leaves the website and accesses a third-party platform, the user will be subject to the privacy policies and terms of use of that third-party website.
+          </p>
+          <p class="text-gray-600">
+            The Company strongly encourages users to review the privacy policies and data-handling practices of any third-party websites before providing personal information to them. The Company shall not be responsible for any loss, misuse, or disclosure of personal information that occurs as a result of a user interacting with third-party websites that are not owned or controlled by the Company.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">16. Cookies and Website Usage Data</h2>
+          <p class="text-gray-600 mb-4">
+            The website may use cookies and similar technologies to improve user experience, enhance website functionality, and better understand how users interact with the website. Cookies are small data files stored on a user's device that help the website remember user preferences, improve navigation, and analyze website performance. These cookies may collect technical information such as browser type, device type, pages visited, and time spent on the website.
+          </p>
+          <p class="text-gray-600">
+            Users have the option to disable cookies through their browser settings if they prefer not to allow cookies to be stored on their device. However, disabling cookies may affect certain features of the website and may reduce the overall functionality and performance of the platform. By continuing to use the website without disabling cookies, users acknowledge and agree to the use of cookies in accordance with this Privacy Policy.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">17. Protection of Children's Information</h2>
+          <p class="text-gray-600 mb-4">
+            The Company understands that certain services may be requested for children, particularly where home-care assistance or child-related services are required. The Company does not knowingly collect personal information directly from children through the website. Personal information relating to children is collected only where such information is provided by a parent, legal guardian, or authorized individual for the purpose of requesting services.
+          </p>
+          <p class="text-gray-600">
+            Where information relating to a child is collected, the Company takes reasonable steps to ensure that such information is used only for the purpose of providing the requested services and is handled with an appropriate level of care and confidentiality. If the Company becomes aware that personal information relating to a child has been provided without proper authorization, the Company may take reasonable steps to remove such information from its records.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">18. Confidentiality of Information</h2>
+          <p class="text-gray-600 mb-4">
+            The Company treats all personal information provided by users as confidential and takes reasonable steps to ensure that such information is not disclosed, misused, or accessed by unauthorized individuals. Access to personal data is restricted to authorized personnel who require the information in order to provide services, respond to enquiries, or perform administrative functions related to the operation of the website and services.
+          </p>
+          <p class="text-gray-600">
+            The Company also takes reasonable steps to ensure that employees, service providers, and representatives who may have access to personal information understand the importance of maintaining confidentiality. Personal information shall not be disclosed to third parties unless such disclosure is necessary to provide services, required by law, or permitted under this Privacy Policy.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">19. Changes to This Privacy Policy</h2>
+          <p class="text-gray-600 mb-4">
+            The Company reserves the right to modify, update, or revise this Privacy Policy at any time in order to reflect changes in legal requirements, service offerings, operational practices, or website functionality. Any updates to this Privacy Policy shall become effective immediately once the revised version is published on the website. Users are encouraged to review this Privacy Policy periodically to stay informed about how their personal information is collected and used.
+          </p>
+          <p class="text-gray-600">
+            Where significant changes are made to this Privacy Policy, the Company may take reasonable steps to notify users through the website or through other appropriate communication channels. Continued use of the website after the updated Privacy Policy has been published shall be considered as acceptance of the revised terms.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">20. Contact Information</h2>
+          <p class="text-gray-600 mb-4">
+            Users who have questions, concerns, or requests relating to this Privacy Policy or the handling of their personal information may contact the Company using the contact details provided on the website. Users may contact the Company to request access to their personal information, request correction or deletion of data, or seek clarification regarding how personal information is used.
+          </p>
+          <p class="text-gray-600 mb-4">
+            The Company shall make reasonable efforts to respond to all privacy-related enquiries within a reasonable timeframe. Where additional time is required to process a request, the Company may inform the user accordingly. The Company is committed to addressing privacy concerns in a fair, transparent, and responsible manner.
+          </p>
+          <p class="text-gray-700 mt-4">
+            <span class="font-semibold">EMAIL:</span> <a href="mailto:kaviparkavi747@gmail.com" class="text-brand-teal font-medium">kaviparkavi747@gmail.com</a><br>
+            <span class="font-semibold">CONTACT:</span> <a href="tel:+918438782511" class="text-brand-teal font-medium">+91 84387 82511</a>
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+    <!-- FOOTER -->
+    <!-- ===== PREMIUM FOOTER — ALIGNMENT PERFECTED ===== -->
+    <footer class="bg-white pt-0 pb-0">
+
+        <!-- Footer Top CTA Strip -->
+        <div class="gradient-teal">
+            <div class="max-w-[90%] mx-auto px-6 py-7 flex flex-col md:flex-row items-center justify-between gap-5">
+                <div class="flex items-center gap-4 text-white">
+                    <div class="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center flex-shrink-0 border border-white/20">
+                        <i class="fas fa-headset text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-poppins font-bold text-base md:text-lg leading-tight">Need Immediate Care Assistance?</h4>
+                        <p class="text-white/70 text-sm leading-snug">Our team is available 24/7 to arrange support.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <a href="tel:+918438782511" class="bg-white/15 backdrop-blur border border-white/30 text-white font-semibold px-6 py-3 rounded-full text-sm hover:bg-white/25 transition-all inline-flex items-center gap-2">
+                        <i class="fas fa-phone-alt"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="max-w-[90%] mx-auto px-6 pt-14 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-10 mb-12">
+
+                <!-- Column 1: Logo + About (span 3) -->
+                <div class="lg:col-span-3">
+                    <a href="index.html" class="inline-block mb-5">
+                        <img src="assets/img/logo.png" class="h-[6rem] w-auto" alt="Kavi Home Services Logo">
+                    </a>
+                    <p style="text-align: justify;" class="text-sm text-gray-400 leading-relaxed mb-0">
+                        Reliable home care and nursing assistance focused on helping individuals maintain comfort and dignity at home. Caregiving that respects personal routines while giving families confidence in everyday living.
+                    </p>
+                </div>
+
+                <!-- Column 2: Services (span 2) -->
+                <div class="lg:col-span-2">
+                    <h5 class="font-poppins font-semibold text-gray-800 mb-5 flex items-center gap-2 text-[15px]">
+                        <span class="w-1 h-5 bg-brand-teal rounded-full"></span> Services
+                    </h5>
+                    <ul class="flex flex-col gap-2.5">
+                        <li><a href="index.html#services" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Our Values</a></li>
+                        <li><a href="index.html#care-team" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Recognition </a></li>
+                        <li><a href="index.html#testimonials-reviews" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Client Stories</a></li>
+                        <li><a href="index.html#philosophy" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Service Outcomes</a></li>
+                        <li><a href="about.html#Milestones" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Our Approach </a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Quick Links (span 2) -->
+                <div class="lg:col-span-2">
+                    <h5 class="font-poppins font-semibold text-gray-800 mb-5 flex items-center gap-2 text-[15px]">
+                        <span class="w-1 h-5 bg-brand-gold rounded-full"></span> Quick Links
+                    </h5>
+                    <ul class="flex flex-col gap-2.5">
+                        <li><a href="index.html" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>Home</a></li>
+                        <li><a href="about.html" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>About Us</a></li>
+                        <li><a href="services.html" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>Services</a></li>
+                        <li><a href="index.html#faq" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>FAQ</a></li>
+                        <li><a href="contact.html" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Working Hours + Social (span 5) -->
+                <div class="lg:col-span-5">
+                    <!-- Working Hours -->
+                    <h5 class="font-poppins font-semibold text-gray-800 mb-4 flex items-center gap-2 text-[15px]">
+                        <span class="w-1 h-5 bg-brand-gold rounded-full"></span> Working Hours
+                    </h5>
+                    <div class="bg-brand-grey rounded-xl p-4 mb-6">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[13px] text-gray-500 flex items-center gap-2">
+                                    <i class="fas fa-clock text-brand-teal text-xs"></i> Office Hours
+                                </span>
+                                <span class="text-[13px] font-semibold text-gray-700">Mon – Fri: 24/7 Available</span>
+                            </div>
+                            <div class="border-t border-gray-200/70"></div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-[13px] text-gray-500 flex items-center gap-2">
+                                    <i class="fas fa-clock text-brand-gold text-xs"></i> Weekend
+                                </span>
+                                <span class="text-[13px] font-semibold text-gray-700">Sat – Sun: 24/7 Available</span>
+                            </div>
+                            <div class="border-t border-gray-200/70"></div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-[13px] text-gray-500 flex items-center gap-2">
+                                    <i class="fas fa-headset text-green-500 text-xs"></i> Care Support
+                                </span>
+                                <span class="text-[13px] font-bold text-green-600 flex items-center gap-1.5">
+                                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> 24/7 Available
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Contact Info Strip — Full Width, Equal Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+                <!-- Phone -->
+                <a href="tel:+918438782511" class="flex items-center gap-3.5 p-4 bg-brand-grey rounded-xl hover:bg-brand-tealPale transition-all duration-300 group">
+                    <div class="w-11 h-11 rounded-lg gradient-teal flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-phone-alt text-white text-sm"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold leading-none mb-1">24/7 Support Line</p>
+                        <p class="text-sm font-bold text-gray-800 group-hover:text-brand-teal transition-colors truncate">+91 84387 82511</p>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:kaviparkavi747@gmail.com" class="flex items-center gap-3.5 p-4 bg-brand-grey rounded-xl hover:bg-brand-tealPale transition-all duration-300 group">
+                    <div class="w-11 h-11 rounded-lg bg-brand-gold flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-envelope text-white text-sm"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold leading-none mb-1">Email Us</p>
+                        <p class="text-sm font-bold text-gray-800 group-hover:text-brand-teal transition-colors truncate">kaviparkavi747@gmail.com</p>
+                    </div>
+                </a>
+
+                <!-- Address -->
+                <div class="flex items-center gap-3.5 p-4 bg-brand-grey rounded-xl">
+                    <div class="w-11 h-11 rounded-lg gradient-teal flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold leading-none mb-1">Head Office</p>
+                        <p class="text-sm font-bold text-gray-800 leading-snug">Vigneshwara, 2nd St, Madipakkam, Chennai, Tamil Nadu 600091</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer Bar -->
+            <div class="border-t border-gray-100 pt-7">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-5">
+                    <!-- Left: Copyright -->
+                    <div class="flex flex-col sm:flex-row items-center gap-1.5 text-center sm:text-left">
+                        <p class="text-[13px] text-gray-400">
+                            © <span id="year"></span> <span class="font-semibold text-gray-600">Kavi Home Care and Nursing</span>. All rights reserved.
+                        </p>
+                        <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+                    </div>
+                    <div class="flex flex-row sm:flex-row items-center gap-1.5 text-center sm:text-left">
+                        <a href="terms.html" class="text-[13px] text-gray-400">
+                             <span class="font text-gray-600">Terms & Conditions</span>
+                        </a>
+                        <p class="text-[13px]  sm:flex text-gray-400">
+                             <span class="font text-gray-600">|</span>
+                        </p>
+                        <a href="privacy.html" class="text-[13px] text-gray-400">
+                             <span class="font text-gray-600">Privacy Policy</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- BACK TO TOP -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full text-white  flex items-center justify-center z-40 opacity-0 translate-y-4 transition-all duration-500 hover:scale-110 hover:-translate-y-1" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <img src="assets/img/chevron.gif" style="" alt="">
+    </button>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".nav-link");
+    const currentPage = window.location.pathname.split("/").pop();
+
+    links.forEach(link => {
+        const linkPage = link.getAttribute("href");
+
+        if (linkPage === currentPage) {
+            link.classList.add("active");
+        }
+    });
+});
+</script> <script>
+        AOS.init({ once: true, offset: 80, duration: 700 });
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const p = document.getElementById('preloader');
+                p.style.opacity = '0';
+                setTimeout(() => p.style.display = 'none', 700);
+            }, 1500);
+        });
+
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursorDot');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2)'; cursor.style.borderColor = '#09797f'; cursor.style.background = 'rgba(9,121,127,0.08)'; });
+            el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; cursor.style.background = 'transparent'; });
+        });
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('mainHeader').classList.toggle('header-scrolled', window.scrollY > 50);
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 500) { btn.style.opacity = '1'; btn.style.transform = 'translateY(0)'; }
+            else { btn.style.opacity = '0'; btn.style.transform = 'translateY(16px)'; }
+        });
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+
+        function openMenu() {
+        hamburgerBtn.classList.add('active');
+        mobileMenu.classList.add('open');
+        document.body.classList.add('menu-open');
+        }
+
+        function closeMenu() {
+        hamburgerBtn.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        }
+
+        hamburgerBtn.addEventListener('click', function () {
+        if (mobileMenu.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+        });
+
+        if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', closeMenu);
+        }
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+        });
+
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const icon = btn.querySelector('.faq-icon');
+            document.querySelectorAll('.faq-item').forEach(i => {
+                if (i !== item) { i.querySelector('.faq-answer').classList.remove('open'); i.querySelector('.faq-icon').classList.remove('rotated'); }
+            });
+            answer.classList.toggle('open'); icon.classList.toggle('rotated');
+        }
+
+        const counters = document.querySelectorAll('.counter-number');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target, target = parseFloat(el.dataset.target);
+                    if (!target) return;
+                    const isDec = target % 1 !== 0, dur = 2000, start = performance.now();
+                    const anim = (now) => {
+                        const p = Math.min((now - start) / dur, 1), e = 1 - Math.pow(1 - p, 4), c = e * target;
+                        el.textContent = isDec ? c.toFixed(1) : Math.floor(c).toLocaleString();
+                        if (p < 1) requestAnimationFrame(anim);
+                    };
+                    requestAnimationFrame(anim); obs.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => obs.observe(c));
+
+        function filterProducts(cat, btn) {
+            document.querySelectorAll('.product-tab').forEach(t => { t.style.background = '#fff'; t.style.color = '#6b7280'; t.style.boxShadow = '0 1px 3px rgba(0,0,0,0.08)'; });
+            btn.style.background = '#09797f'; btn.style.color = '#fff'; btn.style.boxShadow = '0 4px 15px rgba(9,121,127,0.3)';
+            document.querySelectorAll('.product-card').forEach((card, i) => {
+                const c = card.dataset.category;
+                if (cat === 'all' || c === cat) { card.style.display = ''; card.style.animation = `fadeInUp 0.5s ${i * 0.08}s both`; }
+                else { card.style.display = 'none'; }
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const h = this.getAttribute('href');
+                if (h !== '#') { e.preventDefault(); const el = document.querySelector(h); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                document.getElementById('hamburgerBtn').classList.remove('active');
+                document.getElementById('mobileMenu').classList.remove('open');
+            });
+        });
+
+        if (window.innerWidth > 1024) {
+            document.querySelectorAll('.card-premium').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const r = card.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+                    card.style.transform = `perspective(1000px) rotateX(${(y - r.height/2)/25}deg) rotateY(${(r.width/2 - x)/25}deg) translateY(-8px)`;
+                });
+                card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+            });
+        }
+    </script>
+
+
+
+<!-- Lenis -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.0.44/dist/lenis.min.js"></script>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  // Register ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Lenis instance
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    smoothTouch: false
+  });
+
+  // Make Lenis global if you want to call scrollTo elsewhere
+  window.lenis = lenis;
+
+  // Option A: GSAP ticker drives Lenis (recommended with ScrollTrigger)
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    // GSAP time is in seconds, Lenis expects ms
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+</script>
+
+
+</body>
+</html>

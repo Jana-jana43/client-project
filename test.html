@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavi Home Services — Premium Compassionate Caregiving</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { poppins: ['Poppins'], inter: ['Inter'] },
+                    colors: {
+                        brand: {
+                            teal: '#09797f',
+                            tealLight: '#0a9ea5',
+                            tealDark: '#066a6f',
+                            tealPale: '#e6f5f6',
+                            gold: '#f0b104',
+                            goldLight: '#f7cc4a',
+                            goldPale: '#fef9e7',
+                            beige: '#fdf8f4',
+                            grey: '#f6f6f6',
+                            dark: '#1a1a2e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { overflow-x: hidden !important; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f6f6f6; overflow-x: hidden; }
+        ::selection { background: #09797f; color: #fff; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #09797f; border-radius: 10px; }
+
+        .gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); }
+        .gradient-teal-dark { background: linear-gradient(135deg, #066a6f, #09797f); }
+        .gradient-teal-section { background: linear-gradient(135deg, #09797f, #0b8f96); }
+        .gradient-gold { background: linear-gradient(135deg, #f0b104, #f7cc4a); }
+        .text-gradient-teal { background: linear-gradient(135deg, #09797f, #0a9ea5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .text-gradient-gold { background: linear-gradient(135deg, #f0b104, #d9a003); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .gradient-mesh {
+            background: radial-gradient(at 40% 20%, rgba(9,121,127,0.12) 0px, transparent 50%),
+                        radial-gradient(at 80% 0%, rgba(240,177,4,0.08) 0px, transparent 50%),
+                        radial-gradient(at 0% 50%, rgba(9,121,127,0.08) 0px, transparent 50%),
+                        radial-gradient(at 80% 50%, rgba(9,121,127,0.05) 0px, transparent 50%),
+                        radial-gradient(at 0% 100%, rgba(240,177,4,0.05) 0px, transparent 50%);
+        }
+
+        .btn-teal {
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 20px rgba(9, 121, 127, 0.35);
+            position: relative; overflow: hidden;
+        }
+        .btn-teal::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-teal:hover::before { left: 100%; }
+        .btn-teal:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(9, 121, 127, 0.5); }
+        .btn-teal:active { transform: translateY(-1px); }
+
+        .btn-outline-teal {
+            border: 2px solid #09797f; color: #09797f; transition: all 0.4s;
+            position: relative; overflow: hidden; z-index: 1;
+        }
+        .btn-outline-teal::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 100%;
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transition: width 0.4s; z-index: -1;
+        }
+        .btn-outline-teal:hover::before { width: 100%; }
+        .btn-outline-teal:hover { color: #fff; border-color: transparent; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(9,121,127,0.4); }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f0b104, #d9a003);
+            transition: all 0.4s;
+            box-shadow: 0 4px 20px rgba(240, 177, 4, 0.3);
+            position: relative; overflow: hidden;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(240,177,4,0.5); }
+
+        .card-premium {
+            background: #fff; border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative; overflow: hidden;
+        }
+        .card-premium::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(135deg, #09797f, #0a9ea5);
+            transform: scaleX(0); transition: transform 0.5s; transform-origin: left;
+        }
+        .card-premium:hover::before { transform: scaleX(1); }
+        .card-premium:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+
+        .card-glass {
+            background: rgba(255,255,255,0.12); backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
+            transition: all 0.4s;
+        }
+        .card-glass:hover { background: rgba(255,255,255,0.2); transform: translateY(-5px); }
+
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+        @keyframes floatSlow { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-10px) rotate(3deg)} }
+        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 20px rgba(9,121,127,0.3)} 50%{box-shadow:0 0 40px rgba(9,121,127,0.6)} }
+        @keyframes pulse-gold { 0%,100%{box-shadow:0 0 20px rgba(240,177,4,0.3)} 50%{box-shadow:0 0 40px rgba(240,177,4,0.5)} }
+        @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        @keyframes blob { 0%{border-radius:40% 60% 55% 45%/55% 40% 60% 45%} 25%{border-radius:55% 45% 40% 60%/40% 55% 45% 60%} 50%{border-radius:45% 55% 60% 40%/60% 45% 55% 40%} 75%{border-radius:60% 40% 45% 55%/45% 60% 40% 55%} 100%{border-radius:40% 60% 55% 45%/55% 40% 60% 45%} }
+        @keyframes fadeInUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+        @keyframes ripple { 0%{transform:scale(1);opacity:1} 100%{transform:scale(4);opacity:0} }
+        @keyframes shimmer { 0%{left:-100%} 100%{left:200%} }
+        @keyframes loading { 0%{width:0} 100%{width:100%} }
+
+        .float { animation: float 6s ease-in-out infinite; }
+        .float-slow { animation: floatSlow 8s ease-in-out infinite; }
+        .float-delay { animation: float 6s ease-in-out 2s infinite; }
+        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        .spin-slow { animation: spin-slow 20s linear infinite; }
+
+        .hero-blob {
+            position: absolute; width: 115%; height: 115%; top: -7.5%; left: -7.5%;
+            background: linear-gradient(135deg, #09797f, #0a9ea5, #09797f);
+            z-index: 0; opacity: 0.9;
+            animation: blob 8s ease-in-out infinite;
+        }
+
+        .nav-link { position: relative; transition: all 0.3s; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -6px; left: 50%; width: 0; height: 2px;
+            background: #09797f; transition: all 0.3s; transform: translateX(-50%); border-radius: 2px;
+        }
+        .nav-link.active::after,.nav-link:hover::after { width: 100%; }
+        .nav-link.active,.nav-link:hover { color: #09797f; }
+
+        #mainHeader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 0;
+            margin: 0;
+            width: 100%;
+            box-shadow: none;
+        }
+
+        #mainHeader.header-scrolled {
+            top: 12px;
+            left: 4%;
+            transform: translateX(0%);
+            width: 92%;
+            max-width: 1400px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                0 0 0 1px rgba(9, 121, 127, 0.06);
+            border-bottom: none;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        #mainHeader.header-scrolled .header-inner {
+            height: 70px;
+        }
+
+        #mainHeader.header-scrolled .header-logo img {
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        #mainHeader .header-logo img {
+            transition: transform 0.4s ease;
+        }
+
+        #mainHeader.header-scrolled .nav-link {
+            font-size: 13px;
+        }
+
+        #mainHeader.header-hidden {
+            top: -100px;
+            opacity: 0;
+        }
+
+        #mainHeader.header-visible {
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            #mainHeader.header-scrolled {
+                width: 95%;
+                top: 8px;
+                border-radius: 16px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #mainHeader.header-scrolled {
+                width: 96%;
+                top: 6px;
+                border-radius: 14px;
+                left: 2%;
+            }
+            
+            #mainHeader.header-scrolled .header-inner {
+                height: 64px;
+            }
+        }
+
+        .header-scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08) !important; backdrop-filter: blur(20px); background: rgba(255,255,255,0.95) !important; }
+
+        .hamburger span { display: block; width: 26px; height: 2.5px; background: #333; margin: 5px 0; transition: all 0.4s cubic-bezier(0.68,-0.55,0.265,1.55); border-radius: 3px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); background: #09797f; }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(20px); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); background: #09797f; }
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1); }
+        .mobile-menu.open { max-height: 500px; }
+
+        .faq-answer { max-height: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4,0,0.2,1); }
+        .faq-answer.open { max-height: 500px; }
+        .faq-icon { transition: transform 0.4s cubic-bezier(0.68,-0.55,0.265,1.55); }
+        .faq-icon.rotated { transform: rotate(45deg); }
+
+        .marquee-track { display: flex; animation: marquee 30s linear infinite; width: max-content; }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        .counter-number { font-variant-numeric: tabular-nums; }
+
+        .product-card { transition: all 0.5s; position: relative; overflow: hidden; }
+        .product-card .product-overlay {
+            position: absolute; inset: 0; background: rgba(9,121,127,0.9);
+            opacity: 0; transition: all 0.5s; display: flex; align-items: center; justify-content: center;
+        }
+        .product-card:hover .product-overlay { opacity: 1; }
+        .product-card:hover { transform: scale(1.02); }
+        .product-card .product-img { transition: transform 0.7s; }
+        .product-card:hover .product-img { transform: scale(1.1); }
+
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .img-hover { overflow: hidden; }
+        .img-hover img { transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+        .img-hover:hover img { transform: scale(1.08); }
+
+        .badge-shimmer { position: relative; overflow: hidden; }
+        .badge-shimmer::after {
+            content:''; position:absolute; top:0; left:-100%; width:50%; height:100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .play-btn { position: relative; }
+        .play-btn::before {
+            content: ''; position: absolute; inset: -8px; border: 2px solid rgba(9,121,127,0.4);
+            border-radius: 50%; animation: ripple 2s infinite;
+        }
+        .play-btn::after {
+            content: ''; position: absolute; inset: -16px; border: 2px solid rgba(9,121,127,0.2);
+            border-radius: 50%; animation: ripple 2s 0.5s infinite;
+        }
+
+        .gold-accent { color: #f0b104; }
+        .teal-accent { color: #09797f; }
+
+        /* ===== ADAPTIVE CURSOR STYLES ===== */
+        #cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            border: 2px solid rgba(9, 121, 127, 0.7);
+            background: transparent;
+            mix-blend-mode: normal;
+            transition: 
+                width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-radius 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                background 0.3s ease,
+                border-color 0.3s ease,
+                opacity 0.3s ease;
+            will-change: transform, width, height, border-radius;
+        }
+
+        #cursor.cursor-morphed {
+            border-color: rgba(9, 121, 127, 0.5);
+            background: rgba(9, 121, 127, 0.06);
+            border-width: 2px;
+        }
+
+        #cursor.cursor-morphed::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            border: 1px solid rgba(9, 121, 127, 0.15);
+            animation: cursor-pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes cursor-pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.06); opacity: 0.6; }
+        }
+
+        #cursorDot {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: 
+                opacity 0.3s ease,
+                transform 0.15s ease;
+            will-change: transform;
+        }
+
+        #cursorDot.dot-hidden {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        /* Cursor text label */
+        #cursorLabel {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #09797f;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            white-space: nowrap;
+        }
+
+        #cursorLabel.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+</head>
+<body class="bg-brand-grey">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-white flex items-center justify-center transition-opacity duration-700">
+        <div class="text-center">
+            <img src="assets/img/logo-care.png" alt="">
+            <div class="w-48 h-1 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full gradient-teal rounded-full" style="animation: loading 1.5s ease-in-out forwards;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADAPTIVE CURSOR -->
+    <div id="cursor" class="hidden lg:block" style="width:20px;height:20px;border-radius:50%;transform:translate(-50%,-50%)"></div>
+    <div id="cursorDot" class="fixed w-1.5 h-1.5 rounded-full bg-brand-teal pointer-events-none z-[9998] hidden lg:block" style="transform:translate(-50%,-50%)"></div>
+    <div id="cursorLabel" class="hidden lg:block"></div>
+
+    <!-- HEADER -->
+    <header id="mainHeader">
+        <div class="header-inner max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between transition-all duration-500" style="height: 80px;">
+            
+            <a href="#" class="header-logo flex items-center gap-2.5 group">
+                <img src="assets/img/logo-care.png" class="h-20 w-auto transition-transform duration-400" alt="CareHeart Logo">
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">Home</a>
+                <a href="about.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">About</a>
+                <a href="services.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">Services</a>
+                <a href="contact.html" class="nav-link text-sm font-medium text-gray-600 transition-all duration-300">Contact</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="tel:+1800000000" class="text-sm font-medium text-gray-600 hover:text-brand-teal transition-colors" data-cursor-label="Call Us">
+                    <i class="fas fa-phone-alt mr-1.5 text-brand-gold"></i>1-800-CARE
+                </a>
+                <a href="#" class="btn-teal text-white text-sm font-semibold px-6 py-2.5 rounded-full inline-block transition-all duration-300" data-cursor-label="Search">
+                    <i class="fas fa-search mr-1.5"></i>Find Care
+                </a>
+            </div>
+
+            <button class="lg:hidden hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu lg:hidden bg-white/95 backdrop-blur-md" id="mobileMenu">
+            <div class="max-w-[1200px] mx-auto px-6 py-6 flex flex-col gap-1">
+                <a href="#services" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-hand-holding-heart mr-3 w-5 text-center text-brand-teal"></i>Services
+                </a>
+                <a href="#equipment" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-medkit mr-3 w-5 text-center text-brand-teal"></i>Equipment
+                </a>
+                <a href="#about" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-info-circle mr-3 w-5 text-center text-brand-teal"></i>About
+                </a>
+                <a href="#careers" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-briefcase mr-3 w-5 text-center text-brand-teal"></i>Careers
+                </a>
+                <a href="#faq" class="text-sm font-medium text-gray-600 py-3 px-4 rounded-xl hover:bg-brand-tealPale hover:text-brand-teal transition-all">
+                    <i class="fas fa-book-open mr-3 w-5 text-center text-brand-teal"></i>Resources
+                </a>
+                <a href="#" class="btn-teal text-white text-sm font-semibold px-7 py-3.5 rounded-full text-center mt-4">
+                    <i class="fas fa-search mr-2"></i>Find Care
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Demo content to test cursor -->
+    <section class="min-h-screen pt-32 pb-20 px-6 gradient-mesh">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-flex items-center gap-2 bg-brand-tealPale text-brand-teal text-xs font-bold px-4 py-2 rounded-full mb-4">
+                    <i class="fas fa-magic"></i> ADAPTIVE CURSOR DEMO
+                </span>
+                <h1 class="font-poppins text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    Hover Over <span class="text-gradient-teal">Anything</span>
+                </h1>
+                <p class="text-gray-500 max-w-xl mx-auto">The cursor adapts to the shape, size, and border-radius of every interactive element.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Card 1 -->
+                <div class="card-premium p-8" data-aos="fade-up" data-aos-delay="100" data-cursor-label="View">
+                    <div class="w-14 h-14 rounded-2xl gradient-teal flex items-center justify-center mb-5">
+                        <i class="fas fa-heart text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-lg text-gray-800 mb-3">Personal Care</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-5">Dignified assistance with daily activities, bathing, grooming, and medication reminders.</p>
+                    <a href="#" class="btn-outline-teal text-sm font-semibold px-5 py-2.5 rounded-full inline-block" data-cursor-label="Learn More">
+                        Learn More <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-premium p-8" data-aos="fade-up" data-aos-delay="200" data-cursor-label="View">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-gold flex items-center justify-center mb-5">
+                        <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-lg text-gray-800 mb-3">Companionship</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-5">Meaningful social interaction and emotional support to combat isolation and loneliness.</p>
+                    <a href="#" class="btn-teal text-white text-sm font-semibold px-5 py-2.5 rounded-full inline-block" data-cursor-label="Explore">
+                        Explore <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-premium p-8" data-aos="fade-up" data-aos-delay="300" data-cursor-label="View">
+                    <div class="w-14 h-14 rounded-2xl gradient-teal flex items-center justify-center mb-5">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-lg text-gray-800 mb-3">Memory Care</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-5">Specialized support for dementia and Alzheimer's with patience, structure, and love.</p>
+                    <a href="#" class="btn-gold text-white text-sm font-semibold px-5 py-2.5 rounded-xl inline-block" data-cursor-label="Details">
+                        Details <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Various button shapes to test -->
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-12" data-aos="fade-up">
+                <a href="#" class="btn-teal text-white text-sm font-semibold px-8 py-3 rounded-full" data-cursor-label="Click">
+                    Rounded Full Button
+                </a>
+                <a href="#" class="btn-outline-teal text-sm font-semibold px-8 py-3 rounded-xl" data-cursor-label="Click">
+                    Rounded XL Button
+                </a>
+                <a href="#" class="btn-gold text-white text-sm font-semibold px-8 py-3 rounded-lg" data-cursor-label="Click">
+                    Rounded LG Button
+                </a>
+                <a href="#" class="bg-gray-800 text-white text-sm font-semibold px-8 py-3 rounded-md hover:bg-gray-700 transition-all" data-cursor-label="Click">
+                    Rounded MD Button
+                </a>
+                <button class="w-12 h-12 rounded-full gradient-teal text-white flex items-center justify-center hover:scale-110 transition-transform" data-cursor-label="Play">
+                    <i class="fas fa-play text-sm ml-0.5"></i>
+                </button>
+                <button class="w-14 h-14 rounded-2xl bg-brand-gold text-white flex items-center justify-center hover:scale-110 transition-transform" data-cursor-label="Share">
+                    <i class="fas fa-share-alt text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Icon links row -->
+            <div class="flex items-center justify-center gap-3 mb-12" data-aos="fade-up">
+                <a href="#" class="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all" data-cursor-label="Facebook">
+                    <i class="fab fa-facebook-f text-sm"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition-all" data-cursor-label="Instagram">
+                    <i class="fab fa-instagram text-sm"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-gray-400 hover:bg-sky-500 hover:text-white transition-all" data-cursor-label="Twitter">
+                    <i class="fab fa-twitter text-sm"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all" data-cursor-label="YouTube">
+                    <i class="fab fa-youtube text-sm"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all" data-cursor-label="WhatsApp">
+                    <i class="fab fa-whatsapp text-sm"></i>
+                </a>
+            </div>
+
+            <!-- Text links -->
+            <div class="text-center space-x-6" data-aos="fade-up">
+                <a href="#" class="text-sm font-medium text-brand-teal hover:underline">Simple Text Link →</a>
+                <a href="#" class="text-sm font-medium text-brand-gold hover:underline">Another Link →</a>
+                <a href="#" class="text-sm font-medium text-gray-500 hover:text-brand-teal transition-colors">Gray Link →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white pt-0 pb-0">
+        <div class="gradient-teal">
+            <div class="max-w-[90%] mx-auto px-6 py-7 flex flex-col md:flex-row items-center justify-between gap-5">
+                <div class="flex items-center gap-4 text-white">
+                    <div class="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center flex-shrink-0 border border-white/20">
+                        <i class="fas fa-headset text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-poppins font-bold text-base md:text-lg leading-tight">Need Immediate Care Support?</h4>
+                        <p class="text-white/70 text-sm leading-snug">Our care coordinators are available 24/7 to help you.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <a href="tel:+18001234567" class="bg-white/15 backdrop-blur border border-white/30 text-white font-semibold px-6 py-3 rounded-full text-sm hover:bg-white/25 transition-all inline-flex items-center gap-2" data-cursor-label="Call">
+                        <i class="fas fa-phone-alt"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-[90%] mx-auto px-6 pt-14 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-10 mb-12">
+                <div class="lg:col-span-3">
+                    <a href="#" class="inline-block mb-5">
+                        <img src="assets/img/logo-care.png" class="h-[6rem] w-auto" alt="Kavi Home Services Logo">
+                    </a>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-0">
+                        Compassionate, professional caregiving services helping seniors live with dignity, comfort, and joy in the place they call home.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h5 class="font-poppins font-semibold text-gray-800 mb-5 flex items-center gap-2 text-[15px]">
+                        <span class="w-1 h-5 bg-brand-teal rounded-full"></span> Services
+                    </h5>
+                    <ul class="flex flex-col gap-2.5">
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>In-Home Senior Care</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Personal Care</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Companionship Care</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Memory & Dementia</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-teal"></i>Respite Care</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h5 class="font-poppins font-semibold text-gray-800 mb-5 flex items-center gap-2 text-[15px]">
+                        <span class="w-1 h-5 bg-brand-gold rounded-full"></span> Quick Links
+                    </h5>
+                    <ul class="flex flex-col gap-2.5">
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>Home</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>About Us</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>Care Equipment</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>FAQ</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-400 hover:text-brand-teal transition-all duration-300 flex items-center gap-2 hover:translate-x-1 transform"><i class="fas fa-chevron-right text-[7px] text-brand-gold"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <h5 class="font-poppins font-semibold text-gray-800 mb-4 flex items-center gap-2 text-[15px]">
+                        <span class="w-1 h-5 bg-brand-gold rounded-full"></span> Working Hours
+                    </h5>
+                    <div class="bg-brand-grey rounded-xl p-4 mb-6">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[13px] text-gray-500 flex items-center gap-2">
+                                    <i class="fas fa-clock text-brand-teal text-xs"></i> Office Hours
+                                </span>
+                                <span class="text-[13px] font-semibold text-gray-700">Mon – Fri: 8AM – 8PM</span>
+                            </div>
+                            <div class="border-t border-gray-200/70"></div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-[13px] text-gray-500 flex items-center gap-2">
+                                    <i class="fas fa-clock text-brand-gold text-xs"></i> Weekend
+                                </span>
+                                <span class="text-[13px] font-semibold text-gray-700">Sat – Sun: 9AM – 5PM</span>
+                            </div>
+                            <div class="border-t border-gray-200/70"></div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-[13px] text-gray-500 flex items-center gap-2">
+                                    <i class="fas fa-headset text-green-500 text-xs"></i> Care Support
+                                </span>
+                                <span class="text-[13px] font-bold text-green-600 flex items-center gap-1.5">
+                                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> 24/7 Available
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+                <a href="tel:+18001234567" class="flex items-center gap-3.5 p-4 bg-brand-grey rounded-xl hover:bg-brand-tealPale transition-all duration-300 group" data-cursor-label="Call">
+                    <div class="w-11 h-11 rounded-lg gradient-teal flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-phone-alt text-white text-sm"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold leading-none mb-1">24/7 Support Line</p>
+                        <p class="text-sm font-bold text-gray-800 group-hover:text-brand-teal transition-colors truncate">1-800-CARE-HEART</p>
+                    </div>
+                </a>
+
+                <a href="mailto:info@kavicare.com" class="flex items-center gap-3.5 p-4 bg-brand-grey rounded-xl hover:bg-brand-tealPale transition-all duration-300 group" data-cursor-label="Email">
+                    <div class="w-11 h-11 rounded-lg bg-brand-gold flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-envelope text-white text-sm"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold leading-none mb-1">Email Us</p>
+                        <p class="text-sm font-bold text-gray-800 group-hover:text-brand-teal transition-colors truncate">care@careheart.com</p>
+                    </div>
+                </a>
+
+                <div class="flex items-center gap-3.5 p-4 bg-brand-grey rounded-xl">
+                    <div class="w-11 h-11 rounded-lg gradient-teal flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-map-marker-alt text-white text-sm"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold leading-none mb-1">Head Office</p>
+                        <p class="text-sm font-bold text-gray-800 leading-snug">123 Healthcare Blvd, Suite 200, LA</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100 pt-7">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-5">
+                    <div class="flex flex-col sm:flex-row items-center gap-1.5 text-center sm:text-left">
+                        <p class="text-[13px] text-gray-400">
+                            © 2026 <span class="font-semibold text-gray-600">Vishakarex Services</span>. All rights reserved.
+                        </p>
+                        <span class="hidden sm:inline text-gray-200 mx-1">|</span>
+                        <p class="text-[13px] text-gray-400">
+                            Made with <i class="fas fa-heart text-brand-gold text-[10px] animate-pulse"></i> for better senior care
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2.5">
+                        <div class="flex gap-2.5">
+                            <a href="#" class="w-10 h-10 rounded-xl bg-brand-grey flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" data-cursor-label="Facebook"><i class="fab fa-facebook-f text-sm"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-brand-grey flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" data-cursor-label="Instagram"><i class="fab fa-instagram text-sm"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-brand-grey flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" data-cursor-label="LinkedIn"><i class="fab fa-linkedin-in text-sm"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-brand-grey flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" data-cursor-label="YouTube"><i class="fab fa-youtube text-sm"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-brand-grey flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" data-cursor-label="WhatsApp"><i class="fab fa-whatsapp text-sm"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full text-white flex items-center justify-center z-40 opacity-0 translate-y-4 transition-all duration-500 hover:scale-110 hover:-translate-y-1" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <img src="assets/img/chevron.gif" alt="">
+    </button>
+
+    <script>
+        AOS.init({ once: true, offset: 80, duration: 700 });
+
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const p = document.getElementById('preloader');
+                p.style.opacity = '0';
+                setTimeout(() => p.style.display = 'none', 700);
+            }, 1500);
+        });
+
+        // ===== ADAPTIVE CURSOR SYSTEM =====
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorLabel = document.getElementById('cursorLabel');
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let dotX = 0, dotY = 0;
+        let isMorphed = false;
+        let currentTarget = null;
+        let rafId = null;
+
+        // Default cursor size
+        const defaultSize = { w: 20, h: 20, radius: '50%' };
+        // Padding added around the element when morphing
+        const morphPadding = 8;
+
+        // Track mouse position
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Smooth animation loop
+        function animateCursor() {
+            if (!isMorphed) {
+                // Free-following mode — smooth lerp to mouse
+                cursorX += (mouseX - cursorX) * 0.15;
+                cursorY += (mouseY - cursorY) * 0.15;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                cursor.style.transform = 'translate(-50%, -50%)';
+            } else if (currentTarget) {
+                // Morphed mode — snap to element bounds
+                const rect = currentTarget.getBoundingClientRect();
+                const targetX = rect.left + rect.width / 2;
+                const targetY = rect.top + rect.height / 2;
+                const targetW = rect.width + morphPadding * 2;
+                const targetH = rect.height + morphPadding * 2;
+
+                cursorX += (targetX - cursorX) * 0.2;
+                cursorY += (targetY - cursorY) * 0.2;
+
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                cursor.style.width = targetW + 'px';
+                cursor.style.height = targetH + 'px';
+                cursor.style.transform = 'translate(-50%, -50%)';
+            }
+
+            // Dot always follows mouse directly (fast)
+            dotX += (mouseX - dotX) * 0.35;
+            dotY += (mouseY - dotY) * 0.35;
+            cursorDot.style.left = dotX + 'px';
+            cursorDot.style.top = dotY + 'px';
+
+            // Label follows mouse
+            if (cursorLabel) {
+                cursorLabel.style.left = mouseX + 'px';
+                cursorLabel.style.top = (mouseY - 30) + 'px';
+            }
+
+            rafId = requestAnimationFrame(animateCursor);
+        }
+        rafId = requestAnimationFrame(animateCursor);
+
+        // Get computed border-radius of an element
+        function getComputedRadius(el) {
+            const style = window.getComputedStyle(el);
+            return style.borderRadius || '10px';
+        }
+
+        // Check if element is interactive (should morph)
+        function isInteractive(el) {
+            if (!el) return false;
+            const tag = el.tagName.toLowerCase();
+            if (tag === 'a' || tag === 'button') return true;
+            if (el.getAttribute('role') === 'button') return true;
+            if (el.classList.contains('card-premium')) return true;
+            if (el.classList.contains('product-card')) return true;
+            if (el.dataset.cursorLabel) return true;
+            if (el.onclick) return true;
+            return false;
+        }
+
+        // Find closest interactive parent
+        function findInteractive(el) {
+            let current = el;
+            let depth = 0;
+            while (current && depth < 8) {
+                if (isInteractive(current)) return current;
+                current = current.parentElement;
+                depth++;
+            }
+            return null;
+        }
+
+        // Morph cursor to element
+        function morphToElement(el) {
+            if (isMorphed && currentTarget === el) return;
+            
+            currentTarget = el;
+            isMorphed = true;
+
+            const rect = el.getBoundingClientRect();
+            const radius = getComputedRadius(el);
+
+            // Apply morphed styles
+            cursor.style.width = (rect.width + morphPadding * 2) + 'px';
+            cursor.style.height = (rect.height + morphPadding * 2) + 'px';
+            cursor.style.borderRadius = radius;
+            cursor.classList.add('cursor-morphed');
+
+            // Hide dot
+            cursorDot.classList.add('dot-hidden');
+
+            // Show label if available
+            const label = el.dataset.cursorLabel || el.closest('[data-cursor-label]')?.dataset.cursorLabel;
+            if (label && cursorLabel) {
+                cursorLabel.textContent = label;
+                cursorLabel.classList.add('visible');
+            }
+        }
+
+        // Reset cursor to default
+        function resetCursor() {
+            isMorphed = false;
+            currentTarget = null;
+
+            cursor.style.width = defaultSize.w + 'px';
+            cursor.style.height = defaultSize.h + 'px';
+            cursor.style.borderRadius = defaultSize.radius;
+            cursor.classList.remove('cursor-morphed');
+
+            // Show dot
+            cursorDot.classList.remove('dot-hidden');
+
+            // Hide label
+            if (cursorLabel) {
+                cursorLabel.classList.remove('visible');
+            }
+        }
+
+        // Use event delegation for efficiency
+        document.addEventListener('mouseover', (e) => {
+            const interactive = findInteractive(e.target);
+            if (interactive) {
+                morphToElement(interactive);
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            const interactive = findInteractive(e.target);
+            if (interactive) {
+                // Check if we're moving to a child of the same interactive element
+                const relatedInteractive = findInteractive(e.relatedTarget);
+                if (relatedInteractive !== interactive) {
+                    resetCursor();
+                }
+            }
+        });
+
+        // Click effect
+        document.addEventListener('mousedown', () => {
+            if (isMorphed) {
+                cursor.style.transform = 'translate(-50%, -50%) scale(0.95)';
+            } else {
+                cursor.style.transform = 'translate(-50%, -50%) scale(0.85)';
+            }
+        });
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+
+        // Hide cursor when leaving window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            cursorDot.style.opacity = '0';
+            if (cursorLabel) cursorLabel.style.opacity = '0';
+        });
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            cursorDot.style.opacity = '1';
+        });
+
+        // ===== HEADER SCROLL =====
+        window.addEventListener('scroll', () => {
+            document.getElementById('mainHeader').classList.toggle('header-scrolled', window.scrollY > 50);
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 500) { btn.style.opacity = '1'; btn.style.transform = 'translateY(0)'; }
+            else { btn.style.opacity = '0'; btn.style.transform = 'translateY(16px)'; }
+        });
+
+        // ===== HAMBURGER =====
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+
+        function openMenu() {
+        hamburgerBtn.classList.add('active');
+        mobileMenu.classList.add('open');
+        document.body.classList.add('menu-open');
+        }
+
+        function closeMenu() {
+        hamburgerBtn.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        }
+
+        hamburgerBtn.addEventListener('click', function () {
+        if (mobileMenu.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+        });
+
+        if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', closeMenu);
+        }
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+        });
+
+        // ===== FAQ =====
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const icon = btn.querySelector('.faq-icon');
+            document.querySelectorAll('.faq-item').forEach(i => {
+                if (i !== item) { i.querySelector('.faq-answer').classList.remove('open'); i.querySelector('.faq-icon').classList.remove('rotated'); }
+            });
+            answer.classList.toggle('open'); icon.classList.toggle('rotated');
+        }
+
+        // ===== COUNTERS =====
+        const counters = document.querySelectorAll('.counter-number');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target, target = parseFloat(el.dataset.target);
+                    if (!target) return;
+                    const isDec = target % 1 !== 0, dur = 2000, start = performance.now();
+                    const anim = (now) => {
+                        const p = Math.min((now - start) / dur, 1), e = 1 - Math.pow(1 - p, 4), c = e * target;
+                        el.textContent = isDec ? c.toFixed(1) : Math.floor(c).toLocaleString();
+                        if (p < 1) requestAnimationFrame(anim);
+                    };
+                    requestAnimationFrame(anim); obs.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => obs.observe(c));
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const h = this.getAttribute('href');
+                if (h !== '#') { e.preventDefault(); const el = document.querySelector(h); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                document.getElementById('hamburgerBtn').classList.remove('active');
+                document.getElementById('mobileMenu').classList.remove('open');
+            });
+        });
+
+        // ===== CARD TILT (without conflicting with cursor) =====
+        if (window.innerWidth > 1024) {
+            document.querySelectorAll('.card-premium').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const r = card.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+                    card.style.transform = `perspective(1000px) rotateX(${(y - r.height/2)/25}deg) rotateY(${(r.width/2 - x)/25}deg) translateY(-8px)`;
+                });
+                card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+            });
+        }
+    </script>
+</body>
+</html>
